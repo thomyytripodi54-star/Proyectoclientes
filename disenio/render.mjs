@@ -330,13 +330,18 @@ function autoajustar() {
   for (const slide of document.querySelectorAll('.slide')) {
     const n = slide.dataset.n;
 
-    // 1) La palabra destacada va en una sola línea: la achicamos hasta que entre.
+    // 1) La palabra destacada se come el ancho.
+    // Arrancamos del techo y bajamos hasta que entre en una línea: así una
+    // palabra larga se achica y una corta ("5") crece, en vez de quedar
+    // clavada en el tamaño base y perder el rol de ancla visual.
     const dest = slide.querySelector('.destacado');
     if (dest) {
       const disponible = slide.clientWidth - 2 * parseFloat(getComputedStyle(slide).paddingLeft);
-      let px = parseFloat(getComputedStyle(dest).fontSize);
+      const TECHO = 320;
+      let px = TECHO;
+      dest.style.fontSize = px + 'px';
       let guardia = 0;
-      while (dest.scrollWidth > disponible && px > 40 && guardia++ < 90) {
+      while (dest.scrollWidth > disponible && px > 40 && guardia++ < 200) {
         px -= 2;
         dest.style.fontSize = px + 'px';
       }
@@ -389,7 +394,9 @@ async function main() {
     throw new Error('El spec no tiene slides.');
   }
 
-  const salida = salidaArg ? resolve(salidaArg) : join(RAIZ, 'output', spec.slug ?? 'sin-slug');
+  // Sin carpeta explícita, los PNG van al lado del spec. Es lo que uno espera
+  // al correr `render.mjs output/2026-08-07-algo/spec.json`.
+  const salida = salidaArg ? resolve(salidaArg) : dirname(resolve(specPath));
   await mkdir(salida, { recursive: true });
 
   const html = construirHtml(spec);

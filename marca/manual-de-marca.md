@@ -50,7 +50,7 @@ amable a la marca.
 
 | Uso | Peso | Tamaño base |
 |---|---|---|
-| Palabra destacada de portada | 800 | 132px, mayúsculas, se autoajusta |
+| Palabra destacada de portada | 800 | se escala sola hasta llenar el ancho (techo 320px) |
 | Título de portada | 700 | 78px |
 | Título de slide | 700 | 82px, interlineado 0.96 |
 | Remate en itálica | 700 itálica | 52px |
@@ -74,8 +74,9 @@ Son los tres detalles que hacen reconocible una pieza:
 
 1. **El handle enmarcado.** `@yourebrand.es` entre dos hairlines de ancho completo, arriba
    de todo, con tracking abierto. Va **solo en la portada**.
-2. **La palabra destacada.** Una sola palabra en rojo, mayúsculas, gigante, ocupando el
-   ancho completo. Es el ancla visual del carrusel.
+2. **La palabra destacada.** Una sola palabra en rojo, mayúsculas, ocupando el ancho
+   completo. El renderer la escala sola para que siempre llene el ancho, sea `5` o
+   `NEUROMARKETING`. Es el ancla visual del carrusel.
 3. **La textura de grano.** Grano fino + rayaduras sutiles sobre todo el fondo, como una
    pieza impresa. Es una firma, no un elemento de diseño: si se lee antes que el título,
    está mal calibrada.

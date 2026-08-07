@@ -4,7 +4,7 @@
   "slides": [
     {
       "layout": "portada",
-      "titulo": "Tus 30 del bloc de notas\nahora son",
+      "titulo": "Tus 30 hashtags\nahora son",
       "destacado": "5",
       "subtitulo": "Y el número es lo de menos"
     },
@@ -18,26 +18,26 @@
     },
     {
       "layout": "cita",
-      "texto": "==Pocos== hashtags relevantes rinden mejor que muchos genéricos",
+      "texto": "Pocos y relevantes\nle ganan a muchos\ny genéricos",
       "autor": "Es el argumento de Instagram, y cierra: el hashtag como canal viene apagándose hace rato. Ya ni siquiera se puede seguir uno."
     },
     {
       "layout": "contenido",
       "eyebrow": "El dato incómodo",
-      "titulo": "Los posteos con hashtags rinden peor que los que no llevan ninguno",
+      "titulo": "Los posteos ==sin== hashtags rinden mejor",
       "cuerpo": "Ojo con la lectura fácil: **no es que los hashtags te hundan.** Es que quien todavía depende de ellos suele hacer todo lo demás igual de viejo.",
       "remate": "Correlación, no causa"
     },
     {
       "layout": "contenido",
       "eyebrow": "Lo que cambió de fondo",
-      "titulo": "Te clasifican por las palabras que escribís, no por las que etiquetás",
-      "cuerpo": "Instagram empezó a leer el caption como un buscador lee un texto.",
+      "titulo": "Te clasifican por lo que escribís",
+      "cuerpo": "No por lo que etiquetás: Instagram empezó a leer el caption como un buscador lee un texto.",
       "remate": "El caption dice de qué es tu cuenta"
     },
     {
       "layout": "cita",
-      "texto": "“Departamentos en alquiler en ==Villa Urquiza==”",
+      "texto": "“Departamentos\nen alquiler\nen Villa Urquiza”",
       "autor": "Eso es lo que tipea tu cliente. Una inmobiliaria no necesita #inmobiliaria: necesita esa frase arriba de todo, escrita como la diría un vecino.",
       "blob": "abajo-der"
     },
@@ -52,7 +52,7 @@
     },
     {
       "layout": "cierre",
-      "titulo": "¿Conocés a alguien que todavía copia y pega el bloc de notas?",
+      "titulo": "Todavía hay gente\npegando los 30\ndel bloc de notas",
       "cta": "Mandáselo por DM"
     }
   ]

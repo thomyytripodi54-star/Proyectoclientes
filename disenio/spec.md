@@ -7,6 +7,7 @@ node disenio/render.mjs output/AAAA-MM-DD-<slug>/spec.json
 ```
 
 Salida: un PNG de **1080×1350** por slide, numerado `slide-01.png`, `slide-02.png`, …
+Sin segundo argumento, los PNG se escriben **al lado del spec**.
 
 ## Estructura
 
@@ -67,7 +68,7 @@ Fondo default: `azul`.
 | Campo | Qué es |
 |---|---|
 | `titulo` | Línea liviana de arriba. Ej: `"Cambios en el"` |
-| `destacado` | **La palabra ancla.** Mayúsculas, roja, gigante. Máx ~16 caracteres. |
+| `destacado` | **La palabra ancla.** Mayúsculas, roja. Se escala sola para llenar el ancho (techo 320px), así que tanto `5` como `NEUROMARKETING` quedan del tamaño máximo que entra en una línea. |
 | `subtitulo` | Bajada subrayada. Ej: `"¿Los reels ya no funcionan?"` |
 | `pie` | Texto del indicador de swipe. Default: `"Deslizá"` |
 | `mostrar_iso` | `false` para ocultar el megáfono. |
@@ -130,7 +131,7 @@ El HTML se escapa: no se puede inyectar markup.
 
 Después de cargar las fuentes, el renderer:
 
-1. Achica la palabra `destacado` hasta que entre en una línea.
+1. Escala la palabra `destacado` para que ocupe el ancho: arranca del techo (320px) y baja hasta que entre en una línea. Una palabra corta crece, una larga se achica.
 2. Si un slide se desborda verticalmente, baja título y cuerpo escalonadamente.
 3. Si aun así no entra, tira `⚠` por consola.
 

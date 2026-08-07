@@ -15,7 +15,7 @@ Publicados, esperando datos.
 
 | Gancho | Slug | Fecha |
 |---|---|---|
-| — | — | — |
+| "Achicar de 30 a 5 no es el trabajo. El trabajo es escribir distinto las dos primeras líneas." (contraintuitivo: niega la lectura obvia de la noticia y promete la tarea real) | fin-de-los-30-hashtags | 2026-08-07 |
 
 ## Descartados
 No funcionaron. No repetir la estructura.
