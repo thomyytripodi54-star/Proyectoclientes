@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yourebrand — Panel de contenido</title>
+  <link rel="icon" href="/marca/assets/isologo.svg">
+  <link rel="stylesheet" href="/estilos.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="rail">
+      <div class="marca">
+        <img src="/marca/assets/isologo.svg" alt="">
+        <div>
+          <div class="marca-nombre">Yourebrand</div>
+          <div class="marca-sub">Contenido</div>
+        </div>
+      </div>
+
+      <nav class="nav" id="nav">
+        <button class="nav-item" data-seccion="flujo"     aria-current="true"><span class="glifo">▶</span> Flujo</button>
+        <button class="nav-item" data-seccion="contenido"><span class="glifo">▦</span> Contenido <span class="cuenta" id="c-piezas">0</span></button>
+        <button class="nav-item" data-seccion="ideas"    ><span class="glifo">✳</span> Ideas <span class="cuenta" id="c-ideas">0</span></button>
+        <button class="nav-item" data-seccion="agentes"  ><span class="glifo">◍</span> Agentes <span class="cuenta" id="c-agentes">0</span></button>
+        <button class="nav-item" data-seccion="tokens"   ><span class="glifo">∑</span> Consumo</button>
+      </nav>
+
+      <div class="rail-pie">
+        Panel local · corre sobre tu repo<br>
+        <span id="pie-permisos"></span>
+      </div>
+    </aside>
+
+    <main class="principal">
+
+      <!-- ---------------------------------------------- FLUJO -->
+      <section class="seccion activa" id="s-flujo">
+        <div class="cabecera">
+          <h1>El flujo</h1>
+          <p>Rita investiga, Damián filtra y arma los briefs, Lola diseña los slides y Facu escribe el copy. Cada uno arranca cuando el anterior termina.</p>
+        </div>
+
+        <div class="consola">
+          <input id="tema" type="text" placeholder="Tema (opcional) — sin tema, Rita elige según tendencias" autocomplete="off">
+          <button class="boton boton-primario" id="btn-activar">Activar flujo</button>
+          <button class="boton" id="btn-investigar">Solo investigar</button>
+          <button class="boton boton-peligro" id="btn-detener" hidden>Detener</button>
+        </div>
+
+        <div class="pipeline" id="pipeline"></div>
+
+        <div class="metricas" id="metricas-corrida"></div>
+
+        <div class="tarjeta" style="padding:0;overflow:hidden">
+          <div style="padding:15px 18px;border-bottom:1px solid var(--borde);display:flex;align-items:center;gap:10px">
+            <span class="etiqueta">Actividad en vivo</span>
+            <button class="boton boton-chico" id="btn-limpiar" style="margin-left:auto">Limpiar</button>
+          </div>
+          <div class="registro" id="registro"></div>
+        </div>
+      </section>
+
+      <!-- ---------------------------------------------- CONTENIDO -->
+      <section class="seccion" id="s-contenido">
+        <div class="cabecera">
+          <h1>Contenido listo</h1>
+          <p>Las piezas producidas, con los slides y el copy listos para publicar. Cuando subís una, marcala o borrala para que no se te mezcle con lo pendiente.</p>
+        </div>
+        <div class="piezas" id="piezas"></div>
+      </section>
+
+      <!-- ---------------------------------------------- IDEAS -->
+      <section class="seccion" id="s-ideas">
+        <div class="cabecera">
+          <h1>Repertorio de ideas</h1>
+          <p>Lo que Damián aprobó y todavía no se produjo. Cada idea ya viene con el ángulo, la promesa y el símbolo visual definidos.</p>
+        </div>
+        <div class="ideas" id="ideas"></div>
+      </section>
+
+      <!-- ---------------------------------------------- AGENTES -->
+      <section class="seccion" id="s-agentes">
+        <div class="cabecera">
+          <h1>Los agentes</h1>
+          <p>Cada uno con sus instrucciones y su modelo. Editar el contexto acá escribe directo el archivo del repo, así que el cambio aplica en la próxima corrida.</p>
+        </div>
+        <div class="agentes" id="agentes"></div>
+      </section>
+
+      <!-- ---------------------------------------------- TOKENS -->
+      <section class="seccion" id="s-tokens">
+        <div class="cabecera">
+          <h1>Consumo</h1>
+          <p>Tokens y costo por corrida, con el desglose por modelo. Sale de lo que reporta la CLI al terminar cada ejecución.</p>
+        </div>
+        <div class="metricas" id="metricas-tokens"></div>
+        <div class="tarjeta" style="padding:0;overflow:hidden;margin-bottom:18px">
+          <div style="padding:15px 18px;border-bottom:1px solid var(--borde)"><span class="etiqueta">Por modelo</span></div>
+          <div class="envoltorio-tabla"><table class="tabla" id="tabla-modelos"></table></div>
+        </div>
+        <div class="tarjeta" style="padding:0;overflow:hidden">
+          <div style="padding:15px 18px;border-bottom:1px solid var(--borde)"><span class="etiqueta">Historial de corridas</span></div>
+          <div class="envoltorio-tabla"><table class="tabla" id="tabla-corridas"></table></div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <div class="lightbox" id="lightbox">
+    <button aria-label="Cerrar">×</button>
+    <img src="" alt="">
+  </div>
+
+  <script src="/avatares.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

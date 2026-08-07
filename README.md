@@ -9,17 +9,41 @@ investigador  →  estratega  →  diseñador  →  copywriter
 1-research/      2-ideas/     slide-NN.png    copy.md
 ```
 
-## Uso
+## El panel
+
+```bash
+npm run panel     # → http://localhost:4321
+```
+
+Interfaz para operar el sistema sin tocar la terminal:
+
+- **Flujo** — botón Activar que corre de verdad los cuatro agentes, con el pipeline
+  animado según lo que está pasando y el registro en vivo.
+- **Contenido** — las piezas producidas con sus slides y el copy. Copiar caption,
+  descargar slides, marcar como publicada, eliminar, y corregir el diseño editando el
+  spec y volviendo a renderizar sin salir de la página.
+- **Ideas** — el repertorio de Damián, con botón para producir cualquiera.
+- **Agentes** — cada uno con su avatar, su modelo y sus instrucciones editables. Guardar
+  escribe el archivo del repo, así que aplica en la corrida siguiente.
+- **Consumo** — tokens y costo por corrida, con desglose por modelo.
+
+Corre sobre el repo, así que **siempre refleja el estado real**: no hay copia que
+sincronizar. Un archivo de agente que cambiás por fuera aparece en el panel al recargar.
+
+> El panel corre la CLI con `--permission-mode acceptEdits` y las herramientas del
+> pipeline pre-aprobadas: una corrida headless que pide confirmación se cuelga. Se ajusta
+> con `YB_PERMISOS` y `YB_HERRAMIENTAS`. Levantalo solo sobre repos tuyos.
+
+## Uso desde la terminal
 
 ```
-/carrusel                       # pipeline completo, tema libre
+/carrusel                         # pipeline completo, tema libre
 /carrusel pauta para gastronomía  # pipeline completo, tema dirigido
-/investigar                     # solo research + briefs, frena antes de producir
-/disenar <slug>                 # produce una idea ya briefeada
+/investigar                       # solo research + briefs, frena antes de producir
+/disenar <slug>                   # produce una idea ya briefeada
 ```
 
-Cada agente también se puede invocar suelto por nombre: `investigador`, `estratega`,
-`disenador`, `copywriter`.
+Cada agente también se puede invocar suelto por nombre: `rita`, `damian`, `lola`, `facu`.
 
 ## Setup
 

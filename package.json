@@ -6,7 +6,8 @@
   "scripts": {
     "fuentes": "node scripts/bajar-fuentes.mjs",
     "render": "node disenio/render.mjs",
-    "ejemplo": "node disenio/render.mjs output/ejemplo/spec.json /tmp/yb-ejemplo"
+    "ejemplo": "node disenio/render.mjs output/ejemplo/spec.json /tmp/yb-ejemplo",
+    "panel": "node panel/servidor.mjs"
   },
   "dependencies": {
     "playwright": "^1.56.1"

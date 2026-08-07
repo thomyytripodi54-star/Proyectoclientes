@@ -4,36 +4,48 @@
   "slides": [
     {
       "layout": "portada",
-      "titulo": "Tus 30 hashtags\nahora son",
+      "variante": "bloque",
+      "titulo": "Tenés 30 hashtags\nen el bloc de notas.\nInstagram te deja",
       "destacado": "5",
-      "subtitulo": "Y el número es lo de menos"
+      "subtitulo": "Y el número es lo de menos",
+      "simbolo": "#",
+      "simbolo_estilo": "solido",
+      "simbolo_pos": "arriba-der"
     },
     {
       "layout": "contenido",
       "eyebrow": "Desde diciembre de 2025",
-      "titulo": "El tope de 5 cuenta todo junto",
+      "titulo": "El tope de 5 cuenta\ntodo junto",
       "cuerpo": "Caption y comentarios suman al mismo límite. **Pegar el bloque en el primer comentario ya no te da lugares extra.**",
       "remate": "El escondite se terminó",
       "blob": "abajo-der"
     },
     {
-      "layout": "cita",
-      "texto": "Pocos y relevantes\nle ganan a muchos\ny genéricos",
-      "autor": "Es el argumento de Instagram, y cierra: el hashtag como canal viene apagándose hace rato. Ya ni siquiera se puede seguir uno."
+      "layout": "punto",
+      "numero": "01",
+      "titulo": "El hashtag como canal\nse viene apagando",
+      "cuerpo": "El argumento de Instagram es simple: pocos y relevantes rinden más que muchos y genéricos. Hace rato que ==ni siquiera se puede seguir un hashtag==.",
+      "simbolo": "#",
+      "simbolo_estilo": "linea",
+      "simbolo_pos": "abajo-der"
     },
     {
-      "layout": "contenido",
-      "eyebrow": "El dato incómodo",
-      "titulo": "Los posteos ==sin== hashtags rinden mejor",
+      "layout": "punto",
+      "numero": "02",
+      "titulo": "Los posteos ==sin==\nhashtags rinden mejor",
       "cuerpo": "Ojo con la lectura fácil: **no es que los hashtags te hundan.** Es que quien todavía depende de ellos suele hacer todo lo demás igual de viejo.",
-      "remate": "Correlación, no causa"
+      "remate": "Correlación, no causa",
+      "blob": "abajo-izq"
     },
     {
-      "layout": "contenido",
-      "eyebrow": "Lo que cambió de fondo",
-      "titulo": "Te clasifican por lo que escribís",
-      "cuerpo": "No por lo que etiquetás: Instagram empezó a leer el caption como un buscador lee un texto.",
-      "remate": "El caption dice de qué es tu cuenta"
+      "layout": "punto",
+      "numero": "03",
+      "titulo": "Te clasifican por lo\nque escribís",
+      "cuerpo": "No por lo que etiquetás. Instagram empezó a leer el caption como un buscador lee un texto.",
+      "remate": "El caption dice de qué es tu cuenta",
+      "simbolo": "#",
+      "simbolo_estilo": "agua",
+      "simbolo_pos": "abajo-izq"
     },
     {
       "layout": "cita",
@@ -47,13 +59,17 @@
       "items": [
         "Escribí las **5 frases exactas** que tu cliente tipearía para encontrar lo que vendés.",
         "Elegí una y metela en la **primera línea** del próximo posteo.",
-        "Los 5 lugares de hashtag, para **rubro y zona**. Ninguno genérico."
-      ]
+        "Los 5 lugares de hashtag: **rubro y zona**. Ninguno genérico."
+      ],
+      "blob": "abajo-izq"
     },
     {
       "layout": "cierre",
       "titulo": "Todavía hay gente\npegando los 30\ndel bloc de notas",
-      "cta": "Mandáselo por DM"
+      "cta": "Mandáselo por DM",
+      "simbolo": "#",
+      "simbolo_estilo": "agua",
+      "simbolo_pos": "centro"
     }
   ]
 }
