@@ -1,0 +1,59 @@
+{
+  "slug": "fin-de-los-30-hashtags",
+  "handle": "@yourebrand.es",
+  "slides": [
+    {
+      "layout": "portada",
+      "titulo": "Tus 30 hashtags\nahora son",
+      "destacado": "5",
+      "subtitulo": "Y el número es lo de menos"
+    },
+    {
+      "layout": "contenido",
+      "eyebrow": "Desde diciembre de 2025",
+      "titulo": "El tope de 5 cuenta todo junto",
+      "cuerpo": "Caption y comentarios suman al mismo límite. **Pegar el bloque en el primer comentario ya no te da lugares extra.**",
+      "remate": "El escondite se terminó",
+      "blob": "abajo-der"
+    },
+    {
+      "layout": "cita",
+      "texto": "Pocos y relevantes\nle ganan a muchos\ny genéricos",
+      "autor": "Es el argumento de Instagram, y cierra: el hashtag como canal viene apagándose hace rato. Ya ni siquiera se puede seguir uno."
+    },
+    {
+      "layout": "contenido",
+      "eyebrow": "El dato incómodo",
+      "titulo": "Los posteos ==sin== hashtags rinden mejor",
+      "cuerpo": "Ojo con la lectura fácil: **no es que los hashtags te hundan.** Es que quien todavía depende de ellos suele hacer todo lo demás igual de viejo.",
+      "remate": "Correlación, no causa"
+    },
+    {
+      "layout": "contenido",
+      "eyebrow": "Lo que cambió de fondo",
+      "titulo": "Te clasifican por lo que escribís",
+      "cuerpo": "No por lo que etiquetás: Instagram empezó a leer el caption como un buscador lee un texto.",
+      "remate": "El caption dice de qué es tu cuenta"
+    },
+    {
+      "layout": "cita",
+      "texto": "“Departamentos\nen alquiler\nen Villa Urquiza”",
+      "autor": "Eso es lo que tipea tu cliente. Una inmobiliaria no necesita #inmobiliaria: necesita esa frase arriba de todo, escrita como la diría un vecino.",
+      "blob": "abajo-der"
+    },
+    {
+      "layout": "lista",
+      "titulo": "El ejercicio del lunes",
+      "items": [
+        "Escribí las **5 frases exactas** que tu cliente tipearía para encontrar lo que vendés.",
+        "Elegí una y metela en la **primera línea** del próximo posteo.",
+        "Los 5 lugares de hashtag, para **rubro y zona**. Ninguno genérico."
+      ]
+    },
+    {
+      "layout": "cierre",
+      "titulo": "Todavía hay gente\npegando los 30\ndel bloc de notas",
+      "cta": "Mandáselo por DM"
+    }
+  ]
+}

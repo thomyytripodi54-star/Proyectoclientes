@@ -1,0 +1,74 @@
+/* ============================================================
+   YOUREBRAND — TOKENS DE MARCA
+   Fuente de verdad visual. Todo lo que renderiza el agente
+   diseñador sale de acá. Si cambia la marca, se cambia ACÁ
+   y no en los layouts.
+
+   ⚠️ HEX APROXIMADOS: derivados por lectura visual de las
+   piezas de referencia (portada neuromarketing, slide de
+   producción de contenido, logo). Si tenés el manual con los
+   valores exactos, reemplazalos acá y todo el sistema se
+   actualiza solo.
+   ============================================================ */
+
+:root {
+  /* ---------- Paleta primaria ---------- */
+  --yb-azul:        #2A4269;  /* navy de fondo — color base de portadas y slides de contenido */
+  --yb-azul-oscuro: #1E3050;  /* variante para profundidad / degradés */
+  --yb-rojo:        #E9203F;  /* rojo de acento — palabra destacada, números, badges */
+  --yb-magenta:     #D21C7C;  /* magenta — extremo del degradé de marca */
+  --yb-coral:       #EE2C4D;  /* rojo-coral — otro extremo del degradé */
+
+  /* ---------- Neutros ---------- */
+  --yb-blanco:      #FFFFFF;
+  --yb-gris:        #D9D9D9;  /* cuerpo del megáfono en el iso */
+  --yb-negro:       #111111;  /* trazo del iso */
+  --yb-blanco-70:   rgba(255, 255, 255, 0.72);
+  --yb-blanco-45:   rgba(255, 255, 255, 0.45);
+  --yb-blanco-18:   rgba(255, 255, 255, 0.18);
+
+  /* ---------- Degradés de marca ---------- */
+  /* El degradé estrella: coral → magenta en diagonal.
+     Es el que usan las piezas de servicio y los cierres. */
+  --yb-degrade-marca: linear-gradient(115deg, var(--yb-coral) 0%, var(--yb-magenta) 100%);
+  --yb-degrade-azul:  linear-gradient(160deg, #2E4874 0%, var(--yb-azul-oscuro) 100%);
+  --yb-degrade-rojo:  linear-gradient(145deg, #E8474B 0%, #D2272D 100%);
+
+  /* ---------- Tipografía ---------- */
+  /* Poppins: geométrica redondeada, es la que mejor matchea las
+     piezas. Se sirve local desde marca/fonts para render offline. */
+  --yb-font: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+
+  --yb-peso-titulo:   800;  /* ExtraBold — palabra destacada en portadas */
+  --yb-peso-fuerte:   700;  /* Bold — títulos y highlights inline */
+  --yb-peso-medio:    500;
+  --yb-peso-cuerpo:   400;
+
+  /* ---------- Escala tipográfica (canvas 1080x1350) ---------- */
+  --yb-t-destacado:   132px; /* la palabra en rojo de la portada */
+  --yb-t-portada:     78px;  /* "Principios del" */
+  --yb-t-titulo:      82px;  /* título de slide de contenido */
+  --yb-t-subtitulo:   52px;
+  --yb-t-cuerpo:      34px;
+  --yb-t-cuerpo-sm:   30px;
+  --yb-t-etiqueta:    28px;  /* handle, eyebrow, tracking ancho */
+  --yb-t-numero:      120px; /* badge numérico de slides de lista */
+
+  --yb-lh-apretado:   0.96;  /* títulos grandes van con interlineado corto */
+  --yb-lh-titulo:     1.06;
+  --yb-lh-cuerpo:     1.48;
+
+  --yb-track-ancho:   0.18em; /* tracking del handle y de la palabra destacada */
+  --yb-track-titulo:  -0.01em;
+
+  /* ---------- Grilla y espaciado (canvas 1080x1350) ---------- */
+  --yb-ancho:         1080px;
+  --yb-alto:          1350px;
+  --yb-margen-x:      88px;   /* margen lateral — nada de texto fuera de acá */
+  --yb-margen-top:    92px;
+  --yb-margen-bottom: 128px;  /* deja aire para los puntitos del carrusel */
+  --yb-gap:           36px;
+
+  --yb-radio:         28px;   /* radio de tarjetas y contenedores */
+  --yb-radio-pill:    999px;
+}

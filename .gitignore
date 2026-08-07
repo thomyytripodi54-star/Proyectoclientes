@@ -1,0 +1,8 @@
+node_modules/
+package-lock.json
+
+# artefactos temporales del renderer
+_preview.html
+**/_preview.html
+
+.DS_Store

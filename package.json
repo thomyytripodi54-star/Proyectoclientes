@@ -1,0 +1,14 @@
+{
+  "name": "yourebrand-carruseles",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sistema de agentes para investigar, planificar, diseñar y redactar los carruseles de Instagram de Yourebrand",
+  "scripts": {
+    "fuentes": "node scripts/bajar-fuentes.mjs",
+    "render": "node disenio/render.mjs",
+    "ejemplo": "node disenio/render.mjs output/ejemplo/spec.json /tmp/yb-ejemplo"
+  },
+  "dependencies": {
+    "playwright": "^1.56.1"
+  }
+}

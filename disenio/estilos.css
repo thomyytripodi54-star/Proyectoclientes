@@ -1,0 +1,404 @@
+/* ============================================================
+   YOUREBRAND — SISTEMA DE LAYOUTS PARA CARRUSELES IG
+   Canvas fijo 1080x1350 (4:5). Cada .slide es una página.
+
+   Los layouts NO definen colores ni tipografías propias:
+   todo sale de marca/tokens.css. Si querés cambiar la marca,
+   tocá tokens.css, no este archivo.
+   ============================================================ */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  background: #000;
+  font-family: var(--yb-font);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+/* ---------- Contenedor de página ---------- */
+.slide {
+  position: relative;
+  width: var(--yb-ancho);
+  height: var(--yb-alto);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 44px; /* separación mínima entre cabecera / centro / pie */
+  padding: var(--yb-margen-top) var(--yb-margen-x) var(--yb-margen-bottom);
+  color: var(--yb-blanco);
+  isolation: isolate;
+}
+
+/* ---------- Fondos ----------
+   ROJO = color principal. AZUL = complemento.
+   El renderer alterna solo (ver asignarFondos en render.mjs):
+   el rojo domina y el azul entra a cortar el ritmo. */
+.fondo-marca    { background: var(--yb-degrade-marca); }   /* principal */
+.fondo-rojo     { background: var(--yb-degrade-rojo); }
+.fondo-azul     { background: var(--yb-degrade-azul); }    /* complemento */
+.fondo-azul-liso{ background: var(--yb-azul); }
+
+/* ---------- Textura ----------
+   Grano + rayaduras finas, como las piezas impresas de la marca.
+   Va sobre el fondo y debajo del contenido. Es una firma sutil:
+   si se nota antes que el título, está mal calibrada. */
+.slide::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  mix-blend-mode: overlay;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900'%3E%3Cfilter id='r'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.006 0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23r)'/%3E%3C/svg%3E");
+  background-size: 400px 400px, 900px 900px;
+}
+.slide.con-textura::before { opacity: 0.22; }
+
+/* ---------- Decoraciones ----------
+   Capa que contiene los adornos que sobresalen del canvas. Va con
+   overflow:hidden e inset:0 para que lo que se sale quede recortado
+   y NO cuente como desborde del slide (si no, el autoajuste cree que
+   el texto no entra y lo achica al mínimo). */
+.deco {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ---------- Símbolo gigante ----------
+   Un glifo enorme (#, @, ?, %, 24h…) mordiendo una esquina.
+   Es el elemento gráfico que SIEMPRE está disponible: no depende de que
+   haya un asset cargado, sale de la tipografía de marca. Cuando el tema
+   tiene un símbolo obvio, esto es lo que hace que la pieza se vea del
+   tema y no genérica. */
+.simbolo {
+  position: absolute;
+  font-family: var(--yb-font);
+  font-weight: var(--yb-peso-titulo);
+  font-size: 900px;
+  line-height: 0.74;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+  user-select: none;
+}
+/* Marca de agua: textura temática, no compite con el texto. */
+.simbolo-agua { color: rgba(255, 255, 255, 0.13); }
+/* Sólido: el símbolo es protagonista, en el color complementario. */
+.fondo-marca .simbolo-solido, .fondo-rojo .simbolo-solido { color: var(--yb-azul); }
+.fondo-azul .simbolo-solido, .fondo-azul-liso .simbolo-solido { color: var(--yb-rojo); }
+/* Contorno: sólo el trazo, para cuando el sólido tapa demasiado. */
+.simbolo-linea {
+  color: transparent;
+  -webkit-text-stroke: 7px rgba(255, 255, 255, 0.30);
+}
+
+.simbolo-abajo-der  { right: -140px; bottom: -220px; }
+.simbolo-abajo-izq  { left: -140px;  bottom: -220px; }
+.simbolo-arriba-der { right: -140px; top: -230px; }
+.simbolo-arriba-izq { left: -140px;  top: -230px; }
+.simbolo-centro     { left: 50%; top: 50%; transform: translate(-50%, -50%); }
+
+/* Símbolo como héroe de portada: centrado, grande pero completo. */
+.simbolo-heroe {
+  position: static;
+  display: block;
+  font-size: 460px;
+  text-align: center;
+  line-height: 0.86;
+}
+
+/* ---------- Blob de esquina ----------
+   Forma grande en el color complementario, mordiendo una esquina.
+   Sirve para que el slide no sea un rectángulo plano de color. */
+.blob {
+  position: absolute;
+  width: 620px; height: 620px;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.fondo-marca .blob, .fondo-rojo .blob { background: var(--yb-azul); }
+.fondo-azul .blob, .fondo-azul-liso .blob { background: var(--yb-coral); }
+/* El blob va debajo de la textura para que el grano lo atraviese también. */
+.fondo-marca .deco, .fondo-rojo .deco, .fondo-azul .deco, .fondo-azul-liso .deco { z-index: -2; }
+
+.blob-abajo-der { right: -230px; bottom: -230px; }
+.blob-abajo-izq { left: -230px; bottom: -230px; }
+.blob-arriba-der { right: -230px; top: -230px; }
+.blob-arriba-izq { left: -230px; top: -230px; }
+
+/* ---------- Cabecera: handle con hairlines ---------- */
+.handle-enmarcado {
+  font-size: var(--yb-t-etiqueta);
+  font-weight: var(--yb-peso-medio);
+  letter-spacing: var(--yb-track-ancho);
+  color: var(--yb-blanco);
+  padding: 22px 4px;
+  border-top: 2px solid var(--yb-blanco-45);
+  border-bottom: 2px solid var(--yb-blanco-45);
+  text-align: left;
+}
+
+/* ---------- Logo ---------- */
+.logo { display: flex; align-items: center; gap: 18px; }
+.logo img, .logo svg { height: 96px; width: auto; display: block; }
+.logo-centrado { justify-content: center; }
+.logo-chico img, .logo-chico svg { height: 64px; }
+.logo-grande img, .logo-grande svg { height: 158px; }
+
+/* ---------- Tipografía de bloque ---------- */
+.eyebrow {
+  font-size: var(--yb-t-etiqueta);
+  font-weight: var(--yb-peso-fuerte);
+  letter-spacing: var(--yb-track-ancho);
+  text-transform: uppercase;
+  color: var(--yb-blanco-70);
+}
+
+.titulo-portada {
+  font-size: var(--yb-t-portada);
+  font-weight: var(--yb-peso-fuerte);
+  line-height: var(--yb-lh-titulo);
+  letter-spacing: var(--yb-track-titulo);
+  text-align: center;
+}
+
+/* La palabra que se come la pantalla. */
+.destacado {
+  display: block;
+  font-size: var(--yb-t-destacado);
+  font-weight: var(--yb-peso-titulo);
+  line-height: var(--yb-lh-apretado);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--yb-rojo);
+  text-align: center;
+  white-space: nowrap;
+}
+/* Sobre fondo rojo el acento no puede ser rojo: pasa a blanco. */
+.fondo-marca .destacado,
+.fondo-rojo .destacado { color: var(--yb-blanco); }
+
+/* Acento inline: "NIKE ==VS== ADIDAS" */
+.acento { color: var(--yb-rojo); }
+.fondo-marca .acento, .fondo-rojo .acento { color: var(--yb-azul); }
+
+/* ---------- Variantes de portada ----------
+   Tres composiciones distintas para que dos piezas seguidas no tengan la
+   misma cara. La variante se elige en el spec; ver disenio/spec.md. */
+
+/* bloque: todo alineado a la izquierda, sin iso centrado. Más editorial. */
+.portada-bloque .titulo-portada,
+.portada-bloque .destacado,
+.portada-bloque .subtitulo-portada { text-align: left; }
+.portada-bloque .titulo-portada { font-size: 92px; }
+.portada-bloque .centro { justify-content: flex-end; padding-bottom: 40px; }
+
+/* simbolo: un glifo gigante manda la composición y el texto lo acompaña. */
+.portada-simbolo .titulo-portada { font-size: 68px; }
+
+/* Subtítulo de portada, subrayado — como "Media maratón de Buenos Aires" */
+.subtitulo-portada {
+  font-size: var(--yb-t-subtitulo);
+  font-weight: var(--yb-peso-fuerte);
+  line-height: var(--yb-lh-titulo);
+  text-align: center;
+  text-decoration: underline;
+  text-underline-offset: 12px;
+  text-decoration-thickness: 3px;
+}
+
+.titulo {
+  font-size: var(--yb-t-titulo);
+  font-weight: var(--yb-peso-fuerte);
+  line-height: var(--yb-lh-apretado);
+  letter-spacing: var(--yb-track-titulo);
+}
+
+.subtitulo {
+  font-size: var(--yb-t-subtitulo);
+  font-weight: var(--yb-peso-fuerte);
+  line-height: var(--yb-lh-titulo);
+}
+
+.cuerpo {
+  font-size: var(--yb-t-cuerpo);
+  font-weight: var(--yb-peso-cuerpo);
+  line-height: var(--yb-lh-cuerpo);
+  color: var(--yb-blanco);
+}
+.cuerpo b, .cuerpo strong { font-weight: var(--yb-peso-fuerte); }
+
+.remate {
+  font-size: var(--yb-t-subtitulo);
+  font-weight: var(--yb-peso-fuerte);
+  font-style: italic;
+  line-height: var(--yb-lh-titulo);
+}
+
+/* ---------- Badge numérico ---------- */
+.numero {
+  font-size: var(--yb-t-numero);
+  font-weight: var(--yb-peso-titulo);
+  line-height: 0.86;
+  color: var(--yb-rojo);
+  letter-spacing: -0.03em;
+}
+.fondo-marca .numero, .fondo-rojo .numero { color: var(--yb-azul); }
+
+/* ---------- Listas ---------- */
+.lista { display: flex; flex-direction: column; gap: 30px; }
+.lista-item {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  font-size: var(--yb-t-cuerpo);
+  line-height: var(--yb-lh-cuerpo);
+}
+.lista-item .bullet {
+  flex: 0 0 auto;
+  width: 18px; height: 18px;
+  margin-top: 16px;
+  border-radius: 50%;
+  background: var(--yb-rojo);
+}
+.fondo-marca .lista-item .bullet, .fondo-rojo .lista-item .bullet { background: var(--yb-blanco); }
+.lista-item b { font-weight: var(--yb-peso-fuerte); }
+
+/* ============================================================
+   ELEMENTOS GRÁFICOS
+   Cinco modos de meter una imagen. Uno solo por slide.
+   ============================================================ */
+
+/* Contenedor genérico */
+.visual {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  padding: var(--yb-gap) 0;
+}
+.visual img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
+
+/* --- recorte: PNG sin fondo que sangra por abajo ---
+   Es el modo estrella: guantes de box, personaje 3D, producto.
+   Rompe el margen a propósito para dar profundidad. */
+.visual-recorte {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 46%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 0;
+  pointer-events: none;
+}
+.visual-recorte img {
+  max-width: 108%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.28));
+}
+.visual-recorte.der { justify-content: flex-end; }
+.visual-recorte.izq { justify-content: flex-start; }
+/* Cuando hay recorte, el contenido deja lugar abajo. */
+.slide.con-recorte { padding-bottom: calc(46% + 24px); }
+
+/* --- marco: foto con esquinas redondeadas --- */
+.visual-marco {
+  width: 100%;
+  max-height: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--yb-radio);
+  overflow: hidden;
+  background: var(--yb-blanco-18);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.24);
+}
+.visual-marco img { width: 100%; height: 100%; object-fit: cover; max-height: none; }
+
+/* --- papel: tarjeta de papel rasgado que sostiene un logo --- */
+.visual-papel {
+  position: relative;
+  background: #F2EDE4;
+  padding: 54px 64px;
+  max-width: 78%;
+  /* Borde inferior irregular, como papel arrancado */
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 92% 96%, 84% 89%, 74% 97%, 63% 90%,
+                     52% 98%, 41% 91%, 30% 97%, 20% 90%, 10% 96%, 0 89%);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.26);
+}
+.visual-papel img { max-height: 190px; margin: 0 auto; }
+
+/* --- chip: tarjeta blanca redondeada con un logo adentro ---
+   Para comparaciones de marcas o para citar una fuente. */
+.chips { display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
+.chip {
+  background: var(--yb-blanco);
+  border-radius: var(--yb-radio);
+  padding: 34px 44px;
+  display: flex; align-items: center; justify-content: center;
+  min-width: 220px; min-height: 150px;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.22);
+}
+.chip img { max-height: 96px; max-width: 260px; object-fit: contain; }
+.chip-vs {
+  font-size: 64px;
+  font-weight: var(--yb-peso-titulo);
+  color: var(--yb-blanco);
+}
+
+/* ---------- Estructura vertical ---------- */
+.cabecera { flex: 0 0 auto; position: relative; z-index: 1; }
+.centro   { flex: 1 1 auto; display: flex; flex-direction: column; justify-content: center; gap: var(--yb-gap); min-height: 0; position: relative; z-index: 1; }
+.centro-arriba { justify-content: flex-start; padding-top: 66px; }
+.pie      { flex: 0 0 auto; position: relative; z-index: 1; }
+
+.apilado  { display: flex; flex-direction: column; gap: var(--yb-gap); }
+.apilado-sm { display: flex; flex-direction: column; gap: 20px; }
+
+/* ---------- CTA ---------- */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  align-self: flex-start;
+  padding: 26px 46px;
+  border-radius: var(--yb-radio-pill);
+  background: var(--yb-blanco);
+  color: var(--yb-azul);
+  font-size: var(--yb-t-cuerpo);
+  font-weight: var(--yb-peso-fuerte);
+}
+.fondo-azul .cta, .fondo-azul-liso .cta { background: var(--yb-rojo); color: var(--yb-blanco); }
+.cta-centrado { align-self: center; }
+
+/* ---------- Indicador "deslizá" ---------- */
+.deslizar {
+  display: flex; align-items: center; justify-content: center; gap: 14px;
+  font-size: var(--yb-t-etiqueta);
+  font-weight: var(--yb-peso-medio);
+  letter-spacing: 0.08em;
+  color: var(--yb-blanco-70);
+}
+.deslizar .flecha {
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  background: var(--yb-blanco-18);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; line-height: 1;
+}
+
+/* ---------- Firma de pie ---------- */
+.firma {
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: var(--yb-t-etiqueta);
+  font-weight: var(--yb-peso-medio);
+  letter-spacing: 0.1em;
+  color: var(--yb-blanco-70);
+}
