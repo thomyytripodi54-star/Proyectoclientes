@@ -9,8 +9,8 @@ Buscá material de contenido para Yourebrand sobre: **$ARGUMENTS**
 
 Corré **solo los dos primeros pasos** del pipeline:
 
-1. **investigador** — informe con fuentes en `pipeline/1-research/`.
-2. **estratega** — briefs priorizados en `pipeline/2-ideas/`.
+1. **Rita** (investigadora) — informe con fuentes en `pipeline/1-research/`.
+2. **Damián** (estrategia) — briefs priorizados en `pipeline/2-ideas/`.
 
 **Frená ahí.** No diseñes ni escribas copy.
 

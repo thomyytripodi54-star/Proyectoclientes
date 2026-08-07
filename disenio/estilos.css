@@ -71,6 +71,48 @@ html, body {
   pointer-events: none;
 }
 
+/* ---------- Símbolo gigante ----------
+   Un glifo enorme (#, @, ?, %, 24h…) mordiendo una esquina.
+   Es el elemento gráfico que SIEMPRE está disponible: no depende de que
+   haya un asset cargado, sale de la tipografía de marca. Cuando el tema
+   tiene un símbolo obvio, esto es lo que hace que la pieza se vea del
+   tema y no genérica. */
+.simbolo {
+  position: absolute;
+  font-family: var(--yb-font);
+  font-weight: var(--yb-peso-titulo);
+  font-size: 900px;
+  line-height: 0.74;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+  user-select: none;
+}
+/* Marca de agua: textura temática, no compite con el texto. */
+.simbolo-agua { color: rgba(255, 255, 255, 0.13); }
+/* Sólido: el símbolo es protagonista, en el color complementario. */
+.fondo-marca .simbolo-solido, .fondo-rojo .simbolo-solido { color: var(--yb-azul); }
+.fondo-azul .simbolo-solido, .fondo-azul-liso .simbolo-solido { color: var(--yb-rojo); }
+/* Contorno: sólo el trazo, para cuando el sólido tapa demasiado. */
+.simbolo-linea {
+  color: transparent;
+  -webkit-text-stroke: 7px rgba(255, 255, 255, 0.30);
+}
+
+.simbolo-abajo-der  { right: -140px; bottom: -220px; }
+.simbolo-abajo-izq  { left: -140px;  bottom: -220px; }
+.simbolo-arriba-der { right: -140px; top: -230px; }
+.simbolo-arriba-izq { left: -140px;  top: -230px; }
+.simbolo-centro     { left: 50%; top: 50%; transform: translate(-50%, -50%); }
+
+/* Símbolo como héroe de portada: centrado, grande pero completo. */
+.simbolo-heroe {
+  position: static;
+  display: block;
+  font-size: 460px;
+  text-align: center;
+  line-height: 0.86;
+}
+
 /* ---------- Blob de esquina ----------
    Forma grande en el color complementario, mordiendo una esquina.
    Sirve para que el slide no sea un rectángulo plano de color. */
@@ -145,6 +187,20 @@ html, body {
 /* Acento inline: "NIKE ==VS== ADIDAS" */
 .acento { color: var(--yb-rojo); }
 .fondo-marca .acento, .fondo-rojo .acento { color: var(--yb-azul); }
+
+/* ---------- Variantes de portada ----------
+   Tres composiciones distintas para que dos piezas seguidas no tengan la
+   misma cara. La variante se elige en el spec; ver disenio/spec.md. */
+
+/* bloque: todo alineado a la izquierda, sin iso centrado. Más editorial. */
+.portada-bloque .titulo-portada,
+.portada-bloque .destacado,
+.portada-bloque .subtitulo-portada { text-align: left; }
+.portada-bloque .titulo-portada { font-size: 92px; }
+.portada-bloque .centro { justify-content: flex-end; padding-bottom: 40px; }
+
+/* simbolo: un glifo gigante manda la composición y el texto lo acompaña. */
+.portada-simbolo .titulo-portada { font-size: 68px; }
 
 /* Subtítulo de portada, subrayado — como "Media maratón de Buenos Aires" */
 .subtitulo-portada {

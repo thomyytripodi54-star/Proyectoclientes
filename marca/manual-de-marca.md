@@ -85,6 +85,25 @@ Son los tres detalles que hacen reconocible una pieza:
    moderación: no en todos los slides, y **nunca en la esquina donde está el logo o el
    número**.
 
+## El símbolo gigante
+
+El recurso gráfico que **siempre está disponible**, porque sale de la tipografía y no de
+un archivo: un glifo enorme (`#`, `@`, `%`, `?`, `72h`) mordiendo una esquina.
+
+Es lo que hace que una pieza se vea *del tema* en lugar de genérica. Un carrusel sobre
+hashtags con un `#` gigante se lee al instante; el mismo carrusel sin él es texto sobre
+color. Tres estilos: `agua` (marca de agua, el default), `linea` (contorno, para llenar
+un slide que quedaría vacío abajo) y `solido` (protagonista).
+
+Cada brief define el símbolo de su pieza. Dosis: **3 o 4 slides de 8**, rotando posición.
+
+## Variantes de portada
+
+La portada es lo primero que se ve en el feed. Si dos piezas seguidas tienen la misma
+composición, el perfil se lee como un molde. Hay tres variantes —`centrada`, `bloque` y
+`simbolo`— y **la variante nunca se repite dos piezas seguidas**. Queda registrado en
+`memoria/piezas-visuales.md`.
+
 ## Elementos gráficos
 
 Las piezas de Yourebrand no son solo tipografía sobre color: usan **logos de marcas,

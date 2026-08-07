@@ -5,6 +5,7 @@ estado: backlog
 prioridad: alta
 formato: carrusel
 slides: 8
+simbolo: "#"
 pilar: educativo
 objetivo: autoridad
 fuente: pipeline/1-research/2026-08-07.md

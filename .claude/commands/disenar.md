@@ -10,9 +10,9 @@ disponibles en `pipeline/2-ideas/` y pará.
 
 Corré los dos últimos pasos del pipeline:
 
-1. **disenador** — diseñá el carrusel y exportá los PNG. Tiene que revisar visualmente el
+1. **Lola** (diseño) — diseñá el carrusel y exportá los PNG. Tiene que revisar visualmente el
    resultado e iterar hasta que pase el checklist de marca.
-2. **copywriter** — escribí el `copy.md` mirando los slides ya diseñados.
+2. **Facu** (copy) — escribí el `copy.md` mirando los slides ya diseñados.
 
 ## Al terminar
 

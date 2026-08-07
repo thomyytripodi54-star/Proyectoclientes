@@ -32,6 +32,28 @@ Sin segundo argumento, los PNG se escriben **al lado del spec**.
 | `logos` | string[] | — | Varias imágenes como chips (comparar marcas). |
 | `separador` | string | — | Texto entre chips. Típicamente `"VS"`. |
 | `blob` | bool\|string | — | Círculo de color en una esquina: `abajo-der`, `abajo-izq`, `arriba-der`, `arriba-izq`. |
+| `simbolo` | string | — | Glifo gigante: `"#"`, `"@"`, `"%"`, `"?"`, `"72h"`… |
+| `simbolo_estilo` | string | `agua` | `agua`, `linea`, `solido`. |
+| `simbolo_pos` | string | `abajo-der` | Las cuatro esquinas o `centro`. |
+
+## El símbolo: el elemento gráfico que siempre existe
+
+Un glifo enorme sacado de la tipografía de marca. **No depende de que haya assets
+cargados**, y es lo que hace que una pieza se vea *del tema* en vez de genérica: un
+carrusel sobre hashtags con un `#` gigante mordiendo la esquina se lee al instante.
+
+| Estilo | Qué hace | Cuándo |
+|---|---|---|
+| `agua` | Marca de agua blanca al 13%, detrás de todo. | El default. Textura temática sin competir con el texto. |
+| `linea` | Solo el contorno, al 30%. | Para llenar un slide que quedaría vacío en el tercio inferior. |
+| `solido` | Color complementario, protagonista. | Un slide de peso, o la portada `simbolo`. |
+
+```json
+{ "layout": "contenido", "titulo": "…", "simbolo": "#", "simbolo_estilo": "linea", "simbolo_pos": "abajo-izq" }
+```
+
+**Dosis: 3 o 4 slides de 8**, rotando posición. En todos satura; en ninguno, la pieza se
+ve genérica.
 
 ### Fondos: dejalos en automático
 
@@ -65,8 +87,17 @@ Un solo elemento por slide, y **aproximadamente la mitad de los slides**, no tod
 ### `portada` — slide 1
 Fondo default: `azul`.
 
+**Tres variantes.** No repitas la de la pieza anterior (mirá `memoria/piezas-visuales.md`):
+
+| `variante` | Composición |
+|---|---|
+| `centrada` (default) | Iso grande arriba, título y destacado centrados. La clásica. |
+| `bloque` | Todo alineado a la izquierda, sin iso centrado, texto anclado abajo. Más editorial. |
+| `simbolo` | Un glifo gigante manda la composición (usa `simbolo` + `simbolo_estilo`) y el texto lo acompaña. El destacado baja de techo solo, para no competir. |
+
 | Campo | Qué es |
 |---|---|
+| `variante` | `centrada`, `bloque` o `simbolo`. |
 | `titulo` | Línea liviana de arriba. Ej: `"Cambios en el"` |
 | `destacado` | **La palabra ancla.** Mayúsculas, roja. Se escala sola para llenar el ancho (techo 320px), así que tanto `5` como `NEUROMARKETING` quedan del tamaño máximo que entra en una línea. |
 | `subtitulo` | Bajada subrayada. Ej: `"¿Los reels ya no funcionan?"` |

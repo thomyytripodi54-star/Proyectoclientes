@@ -25,10 +25,17 @@ interesa a otro marketinero, no va.
 ## El pipeline
 
 ```
-investigador  →  estratega  →  diseñador  →  copywriter
-    ↓                ↓              ↓             ↓
-1-research/     2-ideas/      output/*.png   output/copy.md
+Rita  →  Damián  →  Lola  →  Facu
+  ↓        ↓         ↓        ↓
+1-research/  2-ideas/  *.png  copy.md
 ```
+
+| Agente | Rol | Modelo |
+|---|---|---|
+| **Rita** | Investigación de tendencias | Sonnet |
+| **Damián** | Estrategia y filtrado de ideas | Opus |
+| **Lola** | Diseño de los carruseles | Opus |
+| **Facu** | Copy final | Opus |
 
 Corré el flujo completo con `/carrusel`. Cada agente también se puede invocar suelto.
 
@@ -42,7 +49,9 @@ Corré el flujo completo con `/carrusel`. Cada agente también se puede invocar 
 - **Nada de estilos sueltos.** El diseño sale del sistema de layouts o no sale. Si un
   layout no alcanza, se reporta y se agrega uno — no se parchea con CSS inline.
 - **La memoria se actualiza siempre.** Cada agente escribe en `memoria/` al terminar.
-  Es lo único que evita que el sistema repita temas, ideas y ganchos.
+  Es lo único que evita que el sistema repita temas, ideas, ganchos y composiciones.
+- **Ninguna pieza se ve igual a la anterior.** La variante de portada rota; queda
+  registrado en `memoria/piezas-visuales.md`.
 - **Nada de datos inventados.** Toda estadística que aparezca en una pieza tiene que tener
   fuente rastreable en el informe de research.
 

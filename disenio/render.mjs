@@ -171,12 +171,33 @@ function visualRecorte(s) {
   return `<div class="visual-recorte ${pos}">${img(s.visual)}</div>`;
 }
 
-function blobHtml(s) {
-  if (!s.blob) return '';
-  const pos = typeof s.blob === 'string' ? s.blob : 'abajo-der';
-  const validas = ['abajo-der', 'abajo-izq', 'arriba-der', 'arriba-izq'];
-  const clase = validas.includes(pos) ? pos : 'abajo-der';
-  return `<span class="deco"><span class="blob blob-${clase}"></span></span>`;
+const POS_VALIDAS = ['abajo-der', 'abajo-izq', 'arriba-der', 'arriba-izq'];
+
+/**
+ * Capa de adornos: blob de esquina + símbolo gigante.
+ * Va con overflow oculto para que lo que sobresale no cuente como
+ * desborde del slide.
+ */
+function decoHtml(s) {
+  const partes = [];
+
+  if (s.blob) {
+    const pos = typeof s.blob === 'string' ? s.blob : 'abajo-der';
+    partes.push(`<span class="blob blob-${POS_VALIDAS.includes(pos) ? pos : 'abajo-der'}"></span>`);
+  }
+
+  // En la portada tipo "simbolo" el glifo ya se dibuja en el flujo del
+  // layout como héroe: si lo repitiéramos acá saldría dos veces.
+  const esHeroe = s.layout === 'portada' && s.variante === 'simbolo';
+
+  if (s.simbolo && !esHeroe) {
+    const pos = [...POS_VALIDAS, 'centro'].includes(s.simbolo_pos) ? s.simbolo_pos : 'abajo-der';
+    const estilos = { agua: 'agua', solido: 'solido', linea: 'linea' };
+    const estilo = estilos[s.simbolo_estilo] ?? 'agua';
+    partes.push(`<span class="simbolo simbolo-${estilo} simbolo-${pos}">${escapar(s.simbolo)}</span>`);
+  }
+
+  return partes.length ? `<span class="deco">${partes.join('')}</span>` : '';
 }
 
 /** Sin imagen inline, el bloque de texto se ancla arriba en vez de centrarse. */
@@ -186,20 +207,39 @@ const centro = (s, vis) => `centro${vis ? '' : ' centro-arriba'}`;
    Layouts
    ------------------------------------------------------------------ */
 const layouts = {
-  /** Slide 1: gancho. Handle enmarcado + título con palabra destacada. */
+  /**
+   * Slide 1: el gancho. Tres variantes para que dos piezas seguidas no
+   * tengan la misma cara:
+   *   centrada (default) — iso arriba, título y destacado centrados
+   *   bloque             — todo a la izquierda, sin iso centrado, más editorial
+   *   simbolo            — un glifo gigante manda y el texto lo acompaña
+   */
   portada(s, ctx) {
     const vis = visualInline(s);
+    const variante = ['centrada', 'bloque', 'simbolo'].includes(s.variante) ? s.variante : 'centrada';
+
+    // Con un glifo gigante de héroe, el destacado baja de techo para que
+    // no compitan dos elementos enormes por la misma atención.
+    const techo = variante === 'simbolo' ? ' data-techo="170"' : '';
+    const bloqueTexto = `
+      <h1 class="titulo-portada">
+        ${s.titulo ? md(s.titulo) : ''}
+        ${s.destacado ? `<span class="destacado"${techo}>${escapar(s.destacado)}</span>` : ''}
+      </h1>
+      ${s.subtitulo ? `<p class="subtitulo-portada">${md(s.subtitulo)}</p>` : ''}`;
+
+    let encabezado = '';
+    if (variante === 'centrada' && s.mostrar_iso !== false) {
+      encabezado = logo('logo-centrado logo-grande');
+    } else if (variante === 'simbolo' && s.simbolo) {
+      const clase = s.simbolo_estilo === 'linea' ? 'simbolo-linea' : 'simbolo-solido';
+      encabezado = `<span class="simbolo simbolo-heroe ${clase}">${escapar(s.simbolo)}</span>`;
+    }
+
     return `
       <div class="cabecera"><div class="handle-enmarcado">${escapar(ctx.handle)}</div></div>
       <div class="centro">
-        <div class="apilado-sm">
-          ${s.mostrar_iso === false ? '' : logo('logo-centrado logo-grande')}
-          <h1 class="titulo-portada">
-            ${s.titulo ? md(s.titulo) : ''}
-            ${s.destacado ? `<span class="destacado">${escapar(s.destacado)}</span>` : ''}
-          </h1>
-          ${s.subtitulo ? `<p class="subtitulo-portada">${md(s.subtitulo)}</p>` : ''}
-        </div>
+        <div class="apilado-sm">${encabezado}${bloqueTexto}</div>
         ${vis}
       </div>
       <div class="pie">
@@ -304,11 +344,12 @@ function construirHtml(spec) {
         clasesFondo[fondos[i]] ?? 'fondo-marca',
         s.textura === false ? '' : 'con-textura',
         recorte ? 'con-recorte' : '',
+        s.layout === 'portada' ? `portada-${s.variante ?? 'centrada'}` : '',
       ]
         .filter(Boolean)
         .join(' ');
 
-      return `<section class="${clases}" data-n="${i + 1}">${blobHtml(s)}${fn(s, ctx)}${recorte}</section>`;
+      return `<section class="${clases}" data-n="${i + 1}">${decoHtml(s)}${fn(s, ctx)}${recorte}</section>`;
     })
     .join('\n');
 
@@ -337,7 +378,7 @@ function autoajustar() {
     const dest = slide.querySelector('.destacado');
     if (dest) {
       const disponible = slide.clientWidth - 2 * parseFloat(getComputedStyle(slide).paddingLeft);
-      const TECHO = 320;
+      const TECHO = parseFloat(dest.dataset.techo) || 320;
       let px = TECHO;
       dest.style.fontSize = px + 'px';
       let guardia = 0;
