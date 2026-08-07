@@ -1,0 +1,32 @@
+<!--
+  Yourebrand — isologo (megáfono).
+
+  ⚠️ RECREACIÓN VECTORIAL aproximada del iso original, hecha para que
+  el render funcione sin depender de un archivo externo.
+  Si tenés el SVG/PNG original, pisá este archivo con el real
+  (mismo nombre) y todos los slides lo toman automáticamente.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 170" fill="none">
+  <!-- Mango -->
+  <path d="M52 104 L74 116 L60 142 a13 13 0 0 1 -23 -13 Z"
+        fill="#D9D9D9" stroke="#111111" stroke-width="6" stroke-linejoin="round"/>
+
+  <!-- Cuerpo del megáfono (cono apuntando a la derecha) -->
+  <path d="M46 62 a24 24 0 0 0 0 46 L150 140 L150 30 Z"
+        fill="#D9D9D9" stroke="#111111" stroke-width="6" stroke-linejoin="round"/>
+
+  <!-- Banda roja -->
+  <path d="M78 68 L78 102 L100 108 L100 62 Z" fill="#E9203F"/>
+  <path d="M46 62 a24 24 0 0 0 0 46 L150 140 L150 30 Z"
+        fill="none" stroke="#111111" stroke-width="6" stroke-linejoin="round"/>
+
+  <!-- Placa frontal -->
+  <rect x="150" y="22" width="16" height="126" rx="8"
+        fill="#D9D9D9" stroke="#111111" stroke-width="6"/>
+  <!-- Detalle de la placa -->
+  <path d="M158 58 L158 74 M158 96 L158 112" stroke="#111111" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Líneas de sonido -->
+  <path d="M184 85 L212 85 M180 60 L204 44 M180 110 L204 126"
+        stroke="#111111" stroke-width="6" stroke-linecap="round"/>
+</svg>

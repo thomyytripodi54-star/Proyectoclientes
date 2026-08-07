@@ -1,0 +1,257 @@
+/* ============================================================
+   YOUREBRAND — SISTEMA DE LAYOUTS PARA CARRUSELES IG
+   Canvas fijo 1080x1350 (4:5). Cada .slide es una página.
+
+   Los layouts NO definen colores ni tipografías propias:
+   todo sale de marca/tokens.css. Si querés cambiar la marca,
+   tocá tokens.css, no este archivo.
+   ============================================================ */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  background: #000;
+  font-family: var(--yb-font);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+/* ---------- Contenedor de página ---------- */
+.slide {
+  position: relative;
+  width: var(--yb-ancho);
+  height: var(--yb-alto);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: var(--yb-margen-top) var(--yb-margen-x) var(--yb-margen-bottom);
+  color: var(--yb-blanco);
+  isolation: isolate;
+}
+
+/* ---------- Fondos ---------- */
+.fondo-azul     { background: var(--yb-degrade-azul); }
+.fondo-azul-liso{ background: var(--yb-azul); }
+.fondo-marca    { background: var(--yb-degrade-marca); }
+.fondo-rojo     { background: var(--yb-degrade-rojo); }
+
+/* Textura de líneas finas en una esquina — el detalle que aparece
+   arriba a la derecha en las piezas de servicio. Es decorativo,
+   va detrás de todo y nunca debe competir con el texto. */
+.slide::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: -300px; right: -300px;
+  width: 720px; height: 720px;
+  border-radius: 50%;
+  background: repeating-radial-gradient(
+    circle at center,
+    transparent 0 26px,
+    rgba(255, 255, 255, 0.5) 26px 27px
+  );
+  opacity: 0;
+  pointer-events: none;
+}
+/* Muy sutil a propósito: es una firma de marca, no un elemento de diseño.
+   Nunca debe leerse antes que el título. */
+.slide.con-textura::after { opacity: 0.16; }
+
+/* ---------- Cabecera: handle con hairlines ---------- */
+/* Es la firma visual de las portadas: el @ encerrado entre dos
+   líneas finas de ancho completo. */
+.handle-enmarcado {
+  font-size: var(--yb-t-etiqueta);
+  font-weight: var(--yb-peso-medio);
+  letter-spacing: var(--yb-track-ancho);
+  color: var(--yb-blanco);
+  padding: 22px 4px;
+  border-top: 2px solid var(--yb-blanco-45);
+  border-bottom: 2px solid var(--yb-blanco-45);
+  text-align: left;
+}
+
+/* ---------- Logo ---------- */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.logo img, .logo svg { height: 96px; width: auto; display: block; }
+.logo .logo-texto {
+  font-size: 40px;
+  font-weight: var(--yb-peso-title, 800);
+  letter-spacing: -0.01em;
+}
+.logo-centrado { justify-content: center; }
+.logo-chico img, .logo-chico svg { height: 64px; }
+.logo-grande img, .logo-grande svg { height: 158px; }
+
+/* ---------- Tipografía de bloque ---------- */
+.eyebrow {
+  font-size: var(--yb-t-etiqueta);
+  font-weight: var(--yb-peso-fuerte);
+  letter-spacing: var(--yb-track-ancho);
+  text-transform: uppercase;
+  color: var(--yb-blanco-70);
+}
+
+.titulo-portada {
+  font-size: var(--yb-t-portada);
+  font-weight: var(--yb-peso-fuerte);
+  line-height: var(--yb-lh-titulo);
+  letter-spacing: var(--yb-track-titulo);
+  text-align: center;
+}
+
+/* La palabra que se come la pantalla. Va en rojo, mayúsculas,
+   tracking abierto y se autoajusta si es muy larga (ver ajustarTexto). */
+.destacado {
+  display: block;
+  font-size: var(--yb-t-destacado);
+  font-weight: var(--yb-peso-titulo);
+  line-height: var(--yb-lh-apretado);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--yb-rojo);
+  text-align: center;
+  white-space: nowrap;
+}
+.fondo-marca .destacado,
+.fondo-rojo .destacado { color: var(--yb-blanco); }
+
+.titulo {
+  font-size: var(--yb-t-titulo);
+  font-weight: var(--yb-peso-fuerte);
+  line-height: var(--yb-lh-apretado);
+  letter-spacing: var(--yb-track-titulo);
+}
+
+.subtitulo {
+  font-size: var(--yb-t-subtitulo);
+  font-weight: var(--yb-peso-fuerte);
+  line-height: var(--yb-lh-titulo);
+}
+
+.cuerpo {
+  font-size: var(--yb-t-cuerpo);
+  font-weight: var(--yb-peso-cuerpo);
+  line-height: var(--yb-lh-cuerpo);
+  color: var(--yb-blanco);
+}
+.cuerpo b, .cuerpo strong { font-weight: var(--yb-peso-fuerte); }
+
+/* Subline en itálica bold — el remate que usan en las piezas
+   de servicio ("Grabación remota y presencial"). */
+.remate {
+  font-size: var(--yb-t-subtitulo);
+  font-weight: var(--yb-peso-fuerte);
+  font-style: italic;
+  line-height: var(--yb-lh-titulo);
+}
+
+/* ---------- Badge numérico para slides de lista ---------- */
+.numero {
+  font-size: var(--yb-t-numero);
+  font-weight: var(--yb-peso-titulo);
+  line-height: 0.86;
+  color: var(--yb-rojo);
+  letter-spacing: -0.03em;
+}
+.fondo-marca .numero, .fondo-rojo .numero { color: var(--yb-blanco-70); }
+
+/* ---------- Listas ---------- */
+.lista { display: flex; flex-direction: column; gap: 30px; }
+.lista-item {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  font-size: var(--yb-t-cuerpo);
+  line-height: var(--yb-lh-cuerpo);
+}
+.lista-item .bullet {
+  flex: 0 0 auto;
+  width: 18px; height: 18px;
+  margin-top: 16px;
+  border-radius: 50%;
+  background: var(--yb-rojo);
+}
+.fondo-marca .lista-item .bullet { background: var(--yb-blanco); }
+.lista-item b { font-weight: var(--yb-peso-fuerte); }
+
+/* ---------- Slot visual (ilustración / imagen) ---------- */
+.visual {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  padding: var(--yb-gap) 0;
+}
+.visual img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
+
+/* Marco de imagen con esquinas redondeadas, para fotos */
+.visual-marco {
+  width: 100%; height: 100%;
+  border-radius: var(--yb-radio);
+  overflow: hidden;
+  background: var(--yb-blanco-18);
+}
+.visual-marco img { width: 100%; height: 100%; object-fit: cover; max-height: none; }
+
+/* ---------- Estructura vertical ---------- */
+.cabecera { flex: 0 0 auto; }
+.centro   { flex: 1 1 auto; display: flex; flex-direction: column; justify-content: center; gap: var(--yb-gap); min-height: 0; }
+/* Sin imagen, centrar deja un pozo de aire abajo. Anclamos arriba con
+   una bajada generosa: es la proporción que usan las piezas reales. */
+.centro-arriba { justify-content: flex-start; padding-top: 110px; }
+.pie      { flex: 0 0 auto; }
+
+.apilado  { display: flex; flex-direction: column; gap: var(--yb-gap); }
+.apilado-sm { display: flex; flex-direction: column; gap: 20px; }
+
+/* ---------- CTA ---------- */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  align-self: flex-start;
+  padding: 26px 46px;
+  border-radius: var(--yb-radio-pill);
+  background: var(--yb-blanco);
+  color: var(--yb-azul);
+  font-size: var(--yb-t-cuerpo);
+  font-weight: var(--yb-peso-fuerte);
+}
+.fondo-azul .cta, .fondo-azul-liso .cta { background: var(--yb-rojo); color: var(--yb-blanco); }
+.cta-centrado { align-self: center; }
+
+/* ---------- Indicador "deslizá" ---------- */
+.deslizar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  font-size: var(--yb-t-etiqueta);
+  font-weight: var(--yb-peso-medio);
+  letter-spacing: 0.08em;
+  color: var(--yb-blanco-70);
+}
+.deslizar .flecha {
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  background: var(--yb-blanco-18);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; line-height: 1;
+}
+
+/* ---------- Firma de pie ---------- */
+.firma {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--yb-t-etiqueta);
+  font-weight: var(--yb-peso-medio);
+  letter-spacing: 0.1em;
+  color: var(--yb-blanco-70);
+}

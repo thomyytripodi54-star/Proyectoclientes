@@ -1,0 +1,42 @@
+{
+  "slug": "ejemplo",
+  "handle": "@yourebrand.es",
+  "slides": [
+    {
+      "layout": "portada",
+      "titulo": "Principios del",
+      "destacado": "NEUROMARKETING",
+      "pie": "Deslizá"
+    },
+    {
+      "layout": "punto",
+      "numero": "01",
+      "titulo": "El cerebro decide antes que vos",
+      "cuerpo": "El **95% de las decisiones de compra** son inconscientes. Cuando tu cliente cree que está eligiendo con la razón, ya eligió con la emoción hace rato.",
+      "remate": "Diseñá para la emoción, justificá con datos"
+    },
+    {
+      "layout": "lista",
+      "titulo": "Qué mirar en tu contenido",
+      "items": [
+        "**Contraste**: el ojo va a lo que rompe el patrón",
+        "**Caras**: activan atención antes que cualquier texto",
+        "**Escasez**: lo que se puede perder pesa más que lo que se puede ganar",
+        "**Historias**: el dato se olvida, la anécdota queda"
+      ]
+    },
+    {
+      "layout": "contenido",
+      "eyebrow": "Lo que hacemos",
+      "titulo": "Producción de contenido",
+      "cuerpo": "Es importante en un mundo con tanta IA, tener **contenido genuino**. Por eso acompañamos a nuestros clientes en toda la generación de contenido humanizado.",
+      "remate": "Grabación remota y presencial"
+    },
+    {
+      "layout": "cierre",
+      "titulo": "¿Lo aplicamos a tu marca?",
+      "cuerpo": "Escribinos y armamos una estrategia a medida.",
+      "cta": "Mandanos un DM"
+    }
+  ]
+}
