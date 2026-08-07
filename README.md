@@ -59,10 +59,36 @@ terminar**. Queda versionado en git, así que es auditable.
 | `hooks-que-funcionan.md` | copywriter | No quemar ganchos; reusar los que rinden. |
 | `performance.md` | investigador, estratega | Doblar la apuesta en lo que funciona. |
 
+## Elementos gráficos
+
+Las piezas usan logos, fotos reales, personajes 3D y recortes — no son solo tipografía
+sobre color. El diseñador tiene cinco modos (`recorte`, `marco`, `papel`, `chip`, `libre`)
+y una regla de dosis: **un elemento por slide, y solo en la mitad de los slides**.
+
+Las imágenes salen de `marca/assets/graficos/` (ver el README de esa carpeta). El
+diseñador solo puede usar archivos que existan ahí, así que cargar la biblioteca es lo que
+más mejora el resultado.
+
+```bash
+node scripts/bajar-imagen.mjs <url> marca/assets/graficos/logos/nike.svg
+```
+
+## Color
+
+El **degradé rojo es el color principal**; el azul es complemento. El renderer asigna los
+fondos solo y garantiza que el rojo sea mayoría, que nunca haya 3 slides seguidos iguales
+y que el cierre sea siempre de marca. Conviene no declarar `fondo` a mano.
+
 ## Personalizar la marca
 
 Todo lo visual sale de `marca/tokens.css`. Cambiás un hex ahí y se actualiza el sistema
 entero. El manual explicado está en `marca/manual-de-marca.md`.
 
-> Los colores actuales están **derivados de piezas publicadas**, no del manual oficial.
-> Si tenés los hex exactos, actualizá `tokens.css`.
+## Pendientes
+
+- [ ] **Isologo real.** `marca/assets/isologo.svg` es un placeholder genérico. Dejá el
+      original en `marca/assets/isologo.png` y el renderer lo prefiere automáticamente.
+- [ ] **Hex exactos.** Los colores están derivados de piezas publicadas, no del manual.
+- [ ] **Biblioteca de gráficos.** Está vacía: cargá personajes, logos y fotos.
+- [ ] **Referencias.** `marca/referencias.md` espera el análisis de los posteos de
+      referencia (Instagram está bloqueado en el sandbox).

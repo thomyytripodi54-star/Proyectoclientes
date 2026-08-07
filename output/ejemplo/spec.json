@@ -4,33 +4,52 @@
   "slides": [
     {
       "layout": "portada",
-      "titulo": "Principios del",
-      "destacado": "NEUROMARKETING",
-      "pie": "Deslizá"
+      "titulo": "Cambios en el",
+      "destacado": "ALGORITMO",
+      "subtitulo": "¿Los reels ya no funcionan?"
     },
     {
       "layout": "punto",
       "numero": "01",
-      "titulo": "El cerebro decide antes que vos",
-      "cuerpo": "El **95% de las decisiones de compra** son inconscientes. Cuando tu cliente cree que está eligiendo con la razón, ya eligió con la emoción hace rato.",
-      "remate": "Diseñá para la emoción, justificá con datos"
+      "titulo": "El alcance ya no premia la frecuencia",
+      "cuerpo": "Publicar todos los días dejó de ser la variable. Meta está priorizando **tiempo de permanencia** por encima de cantidad de posteos.",
+      "remate": "Menos volumen, más retención",
+      "blob": "abajo-der"
+    },
+    {
+      "layout": "punto",
+      "numero": "02",
+      "titulo": "Los primeros 3 segundos definen todo",
+      "cuerpo": "Si el reel no frena el scroll en 3 segundos, no importa lo bueno que sea el resto. El algoritmo ya decidió por vos."
     },
     {
       "layout": "lista",
-      "titulo": "Qué mirar en tu contenido",
+      "titulo": "Qué revisar esta semana",
       "items": [
-        "**Contraste**: el ojo va a lo que rompe el patrón",
-        "**Caras**: activan atención antes que cualquier texto",
-        "**Escasez**: lo que se puede perder pesa más que lo que se puede ganar",
-        "**Historias**: el dato se olvida, la anécdota queda"
+        "**Gancho visual** en el primer frame, no a los 5 segundos",
+        "**Subtítulos** siempre: la mayoría mira sin audio",
+        "**Duración** entre 7 y 15 segundos para contenido de marca"
       ]
+    },
+    {
+      "layout": "cita",
+      "texto": "El 68% del contenido de marca se mira ==sin audio==",
+      "autor": "Meta, informe de contenido 2026",
+      "blob": "arriba-der"
     },
     {
       "layout": "contenido",
       "eyebrow": "Lo que hacemos",
       "titulo": "Producción de contenido",
-      "cuerpo": "Es importante en un mundo con tanta IA, tener **contenido genuino**. Por eso acompañamos a nuestros clientes en toda la generación de contenido humanizado.",
+      "cuerpo": "En un mundo con tanta IA, tener **contenido genuino** vale más que nunca. Acompañamos a nuestros clientes en toda la generación de contenido humanizado.",
       "remate": "Grabación remota y presencial"
+    },
+    {
+      "layout": "contenido",
+      "titulo": "Una jornada, tres meses de contenido",
+      "cuerpo": "Tres horas de grabación con filmmaker y equipo completo alcanzan para cubrir el trimestre entero.",
+      "visual": "marca/assets/isologo.svg",
+      "visual_modo": "chip"
     },
     {
       "layout": "cierre",

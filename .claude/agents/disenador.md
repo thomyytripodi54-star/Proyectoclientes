@@ -15,6 +15,38 @@ pieza comparta grilla, tipografía y paleta.
 1. Leé el brief en `pipeline/2-ideas/<slug>.md`.
 2. Leé `marca/manual-de-marca.md` — es la fuente de verdad visual.
 3. Leé `disenio/spec.md` — es la referencia completa de layouts y campos disponibles.
+4. **Listá `marca/assets/graficos/`** (con Glob) para saber con qué imágenes contás.
+   Solo podés usar archivos que existan ahí.
+
+## Color: el rojo manda, el azul corta
+
+El degradé rojo es el **color principal** de Yourebrand; el azul es complemento.
+
+**No declares `fondo` salvo que tengas un motivo puntual.** El renderer alterna solo y ya
+garantiza que el rojo sea mayoría, que nunca haya 3 seguidos iguales, y que el cierre sea
+de marca. Si forzás fondos a mano, es fácil terminar con un carrusel monocromo — que es
+justo lo que hay que evitar, sea del color que sea.
+
+## Elementos gráficos
+
+Las piezas de Yourebrand usan logos, fotos reales, personajes 3D y recortes. **Usalos**:
+un carrusel de puro texto sobre color no es la marca.
+
+Cinco modos (ver `disenio/spec.md` para el detalle): `recorte`, `marco`, `papel`, `chip`,
+`libre`.
+
+**Pero la dosis importa más que la variedad:**
+
+- **Un solo elemento gráfico por slide.** Nunca dos.
+- **Alrededor de la mitad de los slides**, no todos. Los slides de puro texto son los que
+  dejan respirar a los que tienen imagen. Si le ponés gráfico a los 8, se satura y se
+  pierde la jerarquía.
+- **Si no hay un asset que sirva de verdad, no pongas nada.** Meter una imagen genérica
+  porque "falta algo" empeora el slide.
+- `recorte` necesita PNG con fondo transparente. Con fondo blanco queda un parche: en ese
+  caso usá `marco` o `chip`.
+- Si te falta un asset que mejoraría mucho la pieza, **decilo en tu resumen final** para
+  que Thomy lo cargue a la biblioteca.
 
 ## Cómo trabajás
 
@@ -36,8 +68,12 @@ pieza comparta grilla, tipografía y paleta.
 - [ ] **Jerarquía clara.** En cada slide se lee primero el título, después el cuerpo.
       Si compiten, achicá el cuerpo.
 - [ ] **Aire.** Nada pegado al borde. Ningún slide con el texto tocando los márgenes.
-- [ ] **Ritmo de fondos.** No más de 3 slides seguidos con el mismo fondo. El degradé de
-      marca (`marca`) se reserva para slides de peso y **siempre** para el cierre.
+- [ ] **Ritmo de color.** Ni todo rojo ni todo azul. El rojo es mayoría, el azul corta cada
+      2-3 slides, el cierre siempre es de marca.
+- [ ] **Dosis de gráficos.** Cerca de la mitad de los slides con imagen, no todos. Un
+      elemento por slide como máximo.
+- [ ] **Blobs con criterio.** Nunca en la esquina donde está el logo o el número, y no en
+      todos los slides.
 - [ ] **Un slide, una idea.** Si un slide tiene dos conceptos, partilo en dos.
 - [ ] **Cuerpo corto.** Máximo ~280 caracteres por slide. Si no entra, el problema es el
       texto, no el diseño: recortalo.

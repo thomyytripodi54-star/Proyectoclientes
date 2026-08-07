@@ -20,15 +20,28 @@ viven en `marca/tokens.css`; esto es la explicación de por qué.
 | Blanco | `--yb-blanco` | `#FFFFFF` | Todo el texto. |
 | Gris | `--yb-gris` | `#D9D9D9` | Cuerpo del megáfono en el iso. |
 
-### Los dos mundos
-La marca vive en **dos fondos** y el ritmo del carrusel sale de alternarlos:
+### Jerarquía de color: el rojo manda
 
-- **Azul** (`fondo-azul`) — el terreno serio. Portadas, desarrollo, listas. Es donde vive
-  el contenido educativo.
-- **Degradé coral→magenta** (`fondo-marca`) — el terreno enérgico. Slides de peso,
-  servicios y **siempre** el cierre. Es lo que le da identidad al feed a la distancia.
+**El degradé rojo (coral→magenta) es el color principal de la marca.** El azul es el
+complemento: entra a cortar el ritmo, no a llevar la pieza.
 
-Regla: no más de 3 slides seguidos con el mismo fondo.
+- **Degradé coral→magenta** (`fondo-marca`) — el color de Yourebrand. Es lo que hace
+  reconocible el feed a la distancia. Domina el carrusel y **siempre** cierra la pieza.
+- **Azul** (`fondo-azul`) — complemento. Entra cada 2 o 3 slides para que el rojo no
+  sature, y suele quedar bien en la portada porque contrasta contra el interior rojo.
+
+**Reglas de ritmo:**
+- Nunca todo azul ni todo rojo. Un carrusel monocromo está mal, sea del color que sea.
+- Nunca 3 slides seguidos del mismo fondo.
+- El rojo tiene que ser mayoría (~60-70% de los slides).
+
+El renderer asigna los fondos solo si el slide no declara `fondo`, y garantiza estas tres
+reglas. El diseñador puede forzar uno puntual, pero **la alternancia por defecto ya es la
+correcta**: conviene dejarla trabajar.
+
+### Contraste
+Sobre fondo rojo, los acentos que normalmente son rojos pasan a **azul** (números,
+`==acento==`) o a blanco (palabra destacada). Nunca rojo sobre rojo.
 
 ## Tipografía
 
@@ -63,9 +76,35 @@ Son los tres detalles que hacen reconocible una pieza:
    de todo, con tracking abierto. Va **solo en la portada**.
 2. **La palabra destacada.** Una sola palabra en rojo, mayúsculas, gigante, ocupando el
    ancho completo. Es el ancla visual del carrusel.
-3. **La textura de círculos.** Anillos finísimos en la esquina superior derecha, al 16% de
-   opacidad. Es una firma, no un elemento de diseño: si se lee antes que el título,
-   está mal.
+3. **La textura de grano.** Grano fino + rayaduras sutiles sobre todo el fondo, como una
+   pieza impresa. Es una firma, no un elemento de diseño: si se lee antes que el título,
+   está mal calibrada.
+4. **El blob de esquina.** Círculo grande en el color complementario mordiendo una esquina
+   (azul sobre rojo, coral sobre azul). Rompe el rectángulo plano de color. Se usa con
+   moderación: no en todos los slides, y **nunca en la esquina donde está el logo o el
+   número**.
+
+## Elementos gráficos
+
+Las piezas de Yourebrand no son solo tipografía sobre color: usan **logos de marcas,
+fotos reales, personajes 3D y recortes**. Eso es parte de la identidad.
+
+Cinco modos disponibles (uno solo por slide):
+
+| Modo | Qué es | Cuándo |
+|---|---|---|
+| `recorte` | PNG sin fondo que sangra por abajo, con sombra. | Personajes 3D, productos, objetos. El modo con más impacto. |
+| `marco` | Foto con esquinas redondeadas y sombra. | Fotos reales: equipo, clientes, detrás de escena, archivo. |
+| `papel` | Tarjeta de papel rasgado con un logo adentro. | Citar una marca con textura editorial. |
+| `chip` | Tarjeta blanca redondeada con un logo. | Logos de terceros, o comparar dos marcas con `logos` + `separador: "VS"`. |
+| `libre` | Imagen contenida y centrada. | Ilustraciones e íconos sueltos. |
+
+**Regla de dosis: aproximadamente la mitad de los slides lleva gráfico, no todos.** Un
+carrusel donde cada slide tiene una imagen se lee saturado y pierde jerarquía. Los slides
+de puro texto son los que dejan respirar a los que sí tienen imagen.
+
+Los archivos salen de `marca/assets/graficos/`. El diseñador **solo puede usar imágenes
+que existan ahí** — no inventa rutas.
 
 ## Isologo
 
@@ -74,13 +113,20 @@ Megáfono con banda roja + wordmark "Yourebrand". En las piezas se usa **solo el
 
 - Portada: iso centrado, 158px de alto.
 - Slides internos: iso chico arriba a la izquierda, 64px.
-- El archivo es `marca/assets/isologo.svg`. **Es una recreación vectorial aproximada** —
-  pisalo con el original cuando lo tengas y todos los slides lo toman solos.
+
+> 🔴 **PENDIENTE: el isologo actual no es el real.** `marca/assets/isologo.svg` es un
+> megáfono genérico dibujado a mano como placeholder. **Dejá el archivo original en
+> `marca/assets/isologo.png`** (o `.svg`) y el renderer lo prefiere automáticamente
+> sobre el placeholder — no hay que tocar nada más.
 
 ## Lo que nunca se hace
 
 - Texto rojo sobre fondo coral/magenta (no contrasta).
+- Un carrusel monocromo: ni todo azul ni todo rojo.
 - Más de una palabra destacada por portada.
+- Más de un elemento gráfico por slide.
+- Un recorte con PNG de fondo blanco (se ve como un parche: usá `marco` o `chip`).
+- Un blob en la esquina donde está el logo o el número.
 - Sombras, bordes o efectos que no estén en el sistema.
 - Texto sobre foto sin una capa que garantice contraste.
 - Llenar el slide: si no entra, el problema es el texto.
