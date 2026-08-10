@@ -90,17 +90,27 @@ Además, dos cosas que valen más que cualquier métrica:
   publicaciones son flyers de promociones; no hay ninguna cara del equipo" sí, porque es
   observable y lleva sola a la conversación.
 
-## Referentes del sector
+## Referentes del sector: traé links para abrir en pantalla
 
-Traé **2 o 3**, con link real y una línea de por qué sirven.
-
-Elegilos con criterio: al menos uno tiene que ser **comparable en tamaño o en zona**.
-Comparar una cafetería de barrio contra Starbucks no impresiona a nadie — expone que no
-entendés el negocio. El referente sirve para mostrar el techo del rubro, no para hacer
-sentir mal al cliente.
+Traé **2 o 3**. Elegilos con criterio: al menos uno tiene que ser **comparable en tamaño o
+en zona**. Comparar una cafetería de barrio contra Starbucks no impresiona a nadie — expone
+que no entendés el negocio. El referente muestra el techo del rubro, no hace sentir mal al
+cliente.
 
 De cada uno, lo que importa no es cuántos seguidores tiene: es **qué hace que el cliente no
 está haciendo**, en una línea concreta.
+
+**Regla de oro: todo link tiene que ser abrible en el momento.** Este briefing se usa
+mientras se habla, y el momento más fuerte de una reunión es cuando Thomy gira la pantalla
+y muestra algo. Un argumento que se ve gana a un argumento que se explica.
+
+Por eso, siempre que puedas, además del link a la cuenta traé el **link a una pieza
+concreta** — un reel, un posteo, una sección de la web — que sea el ejemplo exacto de lo
+que estás diciendo. "Mirá cómo lo hace esta cuenta" con un link puesto vale diez veces más
+que "deberían mostrar más al equipo".
+
+Si un link no lo pudiste abrir, marcalo `?` y no lo pongas en la sección de mostrar: nada
+peor que abrir un link roto delante del cliente.
 
 ## Tendencias del rubro
 
@@ -116,64 +126,81 @@ Un archivo: `clientes/<slug>/precall-AAAA-MM-DD.md`
 el extenso — un briefing de seis páginas no se lee antes de una call y termina siendo
 decorativo.
 
+### Cómo se escribe
+
+Esto lo lee Thomy, no el cliente. **No lo diseñes ni lo maquilles: escribilo en bullets.**
+
+- **Todo en bullets.** Nada de párrafos. Se escanea de un vistazo entre que se abre el Meet
+  y entra el cliente.
+- **Un bullet, una idea.** Si un bullet tiene dos comas y un "además", partilo.
+- **Sin introducciones ni cierres de cortesía.** Ni "a continuación se detalla" ni "en
+  conclusión". Empezá por el dato.
+- **Los links van puestos, no descritos.** Markdown clickeable siempre, para que se abran
+  de un toque durante la reunión.
+
+### Estructura
+
 ```markdown
 ---
 cliente: <Nombre>
 rubro: <rubro>
 fecha: AAAA-MM-DD
 reunion_con: <nombre y cargo, si se sabe>
-canales: <lista de links analizados>
+canales: <links analizados>
 ---
 
 # Pre-call — <Cliente>
 
 ## En 30 segundos
-- **Qué hace:** <una línea>
-- **Cómo se ve hoy:** <una línea sobre su presencia digital>
-- **Dónde está la oportunidad:** <una línea, la más fuerte>
+- **Qué hace:** ...
+- **Cómo se ve hoy:** ...
+- **La oportunidad más fuerte:** ...
 
 ## Qué pude ver y qué no
-| Canal | Estado | Verificación |
-|---|---|---|
-| Web | <activa / desactualizada / no tiene> | ✓ abierta |
-| Instagram | ... | ~ solo por búsqueda |
-| ... | | |
+- ✓ **Web** — abierta y leída
+- ~ **Instagram** — solo por búsqueda, los números son aproximados
+- ? **TikTok** — no pude confirmar si está activo
 
 ## Situación digital hoy
-| Dimensión | Qué observé |
-|---|---|
-| Perfil y bio | ... ✓ |
-| Tipo de contenido | ... ✓ |
-| Frecuencia | ... ~ |
-| Pauta activa | ... ✓ |
-| Web | ... ✓ |
+- **Perfil y bio:** ... ✓
+- **Tipo de contenido:** ... ✓
+- **Frecuencia:** ... ~
+- **Pauta activa:** ... ✓
+- **Web:** ... ✓
 
 ## Puntos para trabajar en la reunión
 *Máximo 5, ordenados por fuerza.*
 
-### 1. <Título corto del punto>
+**1. <Título corto>**
 - **Lo que vi:** <observación concreta y verificable>
-- **Por qué importa:** <la consecuencia para su negocio, no para su marketing>
+- **Por qué importa:** <consecuencia para su negocio, no para su marketing>
 - **Qué preguntarle:** "<pregunta textual, lista para decir>"
 
-### 2. ...
+**2. ...**
 
-## Referentes del sector
-| Cuenta | Link | Por qué sirve | Qué hace que el cliente no |
-|---|---|---|---|
+## Para mostrar en pantalla
+*Links abribles en el momento. Solo lo que confirmaste que abre.*
+
+- **<Referente>** — [cuenta](url) · [ejemplo concreto](url)
+  - Comparable en <tamaño / zona / rubro>.
+  - **Hace esto y el cliente no:** <una línea>.
+- **<Referente 2>** — ...
+- **Contraste propio:** [pieza de Yourebrand](url o ruta) que resuelve exactamente esto,
+  si hay un caso del sector en `marca/contexto-agencia.md`.
 
 ## Tendencias del rubro
 - **<Tendencia>** — <consecuencia práctica para este negocio>. [fuente](url)
 
 ## Lo que no puedo saber desde afuera
-<3-5 preguntas que Thomy tiene que hacer sí o sí para que la propuesta después cierre:
-quién decide, qué presupuesto manejan, qué intentaron antes, por qué ahora.>
+- <Pregunta que Thomy tiene que hacer sí o sí para que la propuesta después cierre:
+  quién decide, qué presupuesto, qué intentaron antes, por qué ahora.>
 
 ## Ganchos de apertura
-<2 o 3 frases textuales para los primeros minutos, que muestren que miraste el negocio de
-verdad. Concretas, no genéricas: "vi que abrieron el local de Palermo en marzo pero no lo
-contaron en redes" gana a "vi que tienen un buen producto".>
+- "<frase textual para los primeros minutos>"
 ```
+
+Los ganchos tienen que ser específicos del negocio: *"vi que abrieron el local de Palermo
+en marzo pero no lo contaron en redes"* gana a *"vi que tienen un buen producto"*.
 
 ## Al terminar
 
