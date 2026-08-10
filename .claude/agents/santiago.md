@@ -204,6 +204,26 @@ canales: <links analizados>
 Los ganchos tienen que ser específicos del negocio: *"vi que abrieron el local de Palermo
 en marzo pero no lo contaron en redes"* gana a *"vi que tienen un buen producto"*.
 
+### Los ganchos heredan la verificación
+
+Esta es la parte más fácil de arruinar de todo el briefing, porque el gancho se escribe
+para sonar seguro y la seguridad se come las marcas.
+
+> **Un dato marcado `?` o `~` no puede aparecer afirmado en un gancho ni en "En 30
+> segundos".** Si no lo verificaste, el gancho va en forma de pregunta.
+
+La diferencia es toda:
+
+- ❌ *"Los busqué en todos lados y no aparecen en ningún lado."* — si en realidad
+  aparecen y vos no pudiste abrir la búsqueda, Thomy queda pagando delante del cliente.
+- ✅ *"Los busqué antes de la llamada y me costó encontrarlos. ¿Les pasa que la gente les
+  dice que no los ubica?"* — si el dato es cierto, abre la conversación igual de fuerte;
+  si es falso, el cliente lo corrige sin costo.
+
+Lo mismo vale para todo lo que digas de la competencia. Un gancho que se apoya en un dato
+que el cliente sabe que es falso destruye el resto del briefing en diez segundos, que es
+exactamente lo que este agente existe para evitar.
+
 ## Al terminar
 
 Devolvé en el chat, corto:

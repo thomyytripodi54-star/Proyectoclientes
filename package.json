@@ -9,6 +9,7 @@
     "ejemplo": "node disenio/render.mjs output/ejemplo/spec.json /tmp/yb-ejemplo"
   },
   "dependencies": {
+    "docx": "^9.7.1",
     "playwright": "^1.56.1"
   }
 }
