@@ -96,7 +96,8 @@ el cliente.
 ## Checklist
 
 - [ ] **El logo del cliente está en la portada**, con proporción correcta y sin estirar.
-- [ ] **Cinco páginas o menos**, anexo incluido.
+- [ ] **Cinco páginas de contenido o menos** (secciones 1 a 7). La portada y el anexo de
+      inversión **no cuentan**: un documento correcto da 6 o 7 páginas totales.
 - [ ] **La inversión está en la última página** y se puede sacar sin romper el resto.
 - [ ] **La opción recomendada está marcada** y su encabezado es rojo.
 - [ ] **Ninguna tabla se parte** entre dos páginas.
@@ -118,6 +119,11 @@ el cliente.
   bullets o acortar un encabezado para que entre, nada más. Si ves un error de fondo —una
   cifra que no cierra, una sección que falta, algo que contradice al resto— **reportalo y
   no lo arregles vos**.
+- **Nunca achiques tipografía, interlineado ni márgenes para entrar en un número de
+  páginas.** El sistema visual manda sobre el conteo. Un documento que respira se lee; uno
+  apretado, no. Si el contenido se pasa del tope, maquetalo bien igual y **reportá qué
+  sección se pasa y cuánto**: el largo es responsabilidad de Pablo, no tuya. No entres en
+  un loop de iteraciones peleando contra algo que no podés resolver desde el diseño.
 - **Nunca toques `marca/tokens.css` ni `disenio/propuesta.md`.** Si te falta un componente,
   reportalo: se agrega al sistema, no se parchea en el script.
 - **Nada de estilos sueltos.** Todo hex, tamaño y peso sale del sistema.

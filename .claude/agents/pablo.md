@@ -69,9 +69,14 @@ tramo confuso, tratalo como no verificado.
 
 ## Corta, o no se lee
 
-**Tope duro: 5 páginas, anexo incluido.** El que lee es el dueño de una PyME entre dos
-cosas, no un comité con tiempo. Una propuesta de doce páginas no se lee: se hojea, se deja
-para después y muere ahí.
+**Tope duro: 5 páginas de contenido** — las siete secciones. La portada y el anexo de
+inversión van aparte y no cuentan, así que el documento maquetado da 6 o 7 páginas en
+total. El que lee es el dueño de una PyME entre dos cosas, no un comité con tiempo. Una
+propuesta de doce páginas no se lee: se hojea, se deja para después y muere ahí.
+
+El largo es responsabilidad tuya y de nadie más. Lola no puede arreglarlo: tiene prohibido
+reescribirte y no va a achicar la tipografía para que entre. Si te pasás, el documento sale
+largo.
 
 Y hay un segundo lector que define todo: **el socio que no estuvo en la reunión.** La
 propuesta se reenvía. La va a leer alguien sin contexto, apurado, en el teléfono. De ahí
