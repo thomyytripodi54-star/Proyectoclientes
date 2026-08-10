@@ -194,12 +194,13 @@ recomendación sin que ustedes lo hayan visto es un riesgo que no vamos a correr
 
 - **Thomas Tripodi** — Founder & CEO. Es tu contacto directo y con quien tenés la reunión
   mensual, como hablamos en la call. No te reunís solo con el equipo operativo.
-- **Community Manager asignada** — de las 10 del equipo, se asigna una acorde al perfil de
-  la cuenta. Se define y se presenta en la reunión de arranque, con nombre.
+- **Community Manager asignada** — se asigna del equipo según el perfil de la cuenta. Se
+  define y se presenta en la reunión de arranque, con nombre.
 - **Tefy** — diseño e identidad de marca. Interviene en la puesta a punto del mes 1.
 
-Somos una agencia de 20 personas, con 6 años en el mercado y más de 400 clientes.
-Trabajamos con servicios profesionales, asesores y finanzas, además de otros rubros.
+Somos una agencia de más de 20 personas, con 6 años en el mercado y más de 400 clientes
+en Argentina y España. Trabajamos con servicios profesionales —estudios jurídicos,
+consultoras, salud— además de otros rubros.
 
 **Un caso, y por qué te lo mostramos**
 
