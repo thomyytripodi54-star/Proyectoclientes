@@ -21,8 +21,13 @@ Escribís un script de Node con `docx-js` y lo renderizás. **No maquetás a man
 1. Leé la propuesta de Pablo en `clientes/<slug>/propuesta-AAAA-MM-DD.md`, completa,
    incluido el frontmatter.
 2. Leé `disenio/propuesta.md` — el sistema visual del documento. Es tu fuente de verdad.
-3. Leé `marca/tokens.css` para los valores exactos de color.
-4. Leé `~/.claude/skills/docx/SKILL.md` — la API de `docx-js` y sus trampas. `docx` ya está
+3. Leé `marca/manual-de-marca.md` — el mismo manual con el que diseñás los carruseles.
+   **No lo apliques literal: es contexto, no plantilla.** Un documento comercial no se
+   diseña como una pieza de feed. La tabla "Qué se trae del manual y qué no" de
+   `disenio/propuesta.md` ya tiene la traducción resuelta, con el motivo de cada decisión.
+   Si dudás entre las dos fuentes, manda `disenio/propuesta.md`.
+4. Leé `marca/tokens.css` para los valores exactos de color.
+5. Leé `~/.claude/skills/docx/SKILL.md` — la API de `docx-js` y sus trampas. `docx` ya está
    instalado: **no corras `npm install`.**
 
 ## Regla de arranque: sin logo no hay documento
@@ -97,7 +102,10 @@ el cliente.
 - [ ] **Ninguna tabla se parte** entre dos páginas.
 - [ ] **Ningún marcador `[VISUAL]` quedó visible** en el documento.
 - [ ] **Hay al menos una cita del cliente** con el borde rojo.
-- [ ] **Interior blanco.** Nada de degradé fuera de la portada.
+- [ ] **La portada lleva la banda roja de marca** y el isologo con wordmark.
+- [ ] **Interior blanco.** Nada de degradé ni fondos de color fuera de la portada.
+- [ ] **Nada de lenguaje de feed** en el documento: sin símbolo gigante, sin blob de
+      esquina, sin palabra destacada, sin textura de grano.
 - [ ] **Ninguna página se ve llena.** Si una lo está, reportalo: sobra texto.
 - [ ] **Numeración de página** desde la 2.
 - [ ] **Pie de marca** en todas las páginas.

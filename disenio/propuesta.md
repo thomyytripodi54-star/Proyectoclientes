@@ -7,18 +7,35 @@ Los valores salen de `marca/tokens.css`. Si un color o un tamaño no está acá,
 
 ## La traducción de la marca al papel
 
+`marca/manual-de-marca.md` describe cómo se ve una pieza de Instagram. **Leelo antes de
+diseñar, pero no lo apliques literal.** El documento es de la misma marca; no es una pieza
+de feed.
+
 El sistema de Instagram es **fondo inundado de color**: cada slide es un rectángulo rojo o
-azul con texto encima. Trasladar eso a un documento es un error — un Word con páginas
-inundadas de degradé se imprime mal, se lee como plantilla descargada y cansa a las tres
-páginas.
+azul con texto encima. Trasladar eso a un Word es un error — se imprime mal, se lee como
+plantilla descargada y cansa a las tres páginas.
 
 La traducción correcta es al revés:
 
 > **La portada lleva el color. El interior es blanco con acentos.**
 
-El degradé de marca aparece una sola vez, en la banda de portada. De ahí en adelante el
-color entra en encabezados de sección, encabezados de tabla, números y citas. Nunca de
-fondo.
+### Qué se trae del manual y qué no
+
+| Del manual | Al documento |
+|---|---|
+| **Poppins en toda la comunicación** | Igual, sin cambios. Es lo que más hace que se lea "de Yourebrand". |
+| **El rojo manda, el azul complementa** | **Sí, y define la portada.** El degradé coral→magenta es el color de la marca: es lo primero que ve el cliente al abrir el archivo. |
+| **Interlineado apretado en títulos** | Sí, en títulos de sección (1,1). En cuerpo de 10 pt no: ahí es ilegible. |
+| **Handle enmarcado entre hairlines** | Sí, adaptado: el tagline entre dos líneas finas en la portada. Es un gesto de marca que funciona igual en papel. |
+| **Fondos inundados de color** | **No.** Solo la banda de portada. El interior es blanco. |
+| **Palabra destacada gigante en rojo** | **No.** En un documento comercial se lee como flyer. |
+| **Textura de grano y rayaduras** | **No.** No sobrevive a la impresión ni al render de Word. |
+| **Blob de esquina** | **No.** Es lenguaje de feed. |
+| **Símbolo gigante mordiendo la esquina** | **No.** El apoyo visual del documento son datos, no glifos. |
+| **Solo el iso, sin wordmark** | **Al revés.** En las piezas alcanza con el iso porque el handle identifica la cuenta. Acá va el isologo completo **con wordmark**: el que lo abre tiene que saber quién se lo mandó. |
+
+La regla detrás de todo esto: **el documento se reconoce como de Yourebrand por la
+tipografía, el rojo de portada y el criterio, no por repetir los recursos del feed.**
 
 ## Página
 
@@ -57,15 +74,28 @@ encabezados de la columna recomendada. Un párrafo rojo no se lee.
 
 De arriba a abajo:
 
-1. **Banda de color** de ancho completo ocupando el tercio superior — tabla de una celda
-   con `shading` sólido `#2A4269`. Adentro, en blanco: el título del documento
-   (*"Propuesta de trabajo"*) y el nombre del cliente.
+1. **Banda roja de marca**, ancho completo, ocupando el tercio superior. Es el momento en
+   que el documento se identifica como de Yourebrand: el rojo es el color principal de la
+   marca y esto es lo primero que ve el cliente al abrir el archivo.
+
+   Por defecto, tabla de una celda con `shading` sólido `#E9203F` (`ShadingType.CLEAR`).
+
+   **Si querés el degradé coral→magenta**, que es el color real de la marca, no lo busques
+   en Word: no soporta degradés en sombreado de celda. Generalo como PNG con el Chromium
+   que ya usa el repo y metelo como `ImageRun` de ancho completo. El degradé está en
+   `--yb-degrade-marca`.
+
+   Adentro de la banda, **todo en blanco**: el título (*"Propuesta de trabajo"*) y el
+   nombre del cliente. **Nunca texto rojo ni azul sobre la banda** — no contrasta.
+
 2. **Logo del cliente** centrado debajo de la banda, sobre blanco, máximo 4 cm de alto.
    Es lo que hace que la propuesta se vea hecha para él y no sacada de una carpeta.
 3. **Tabla de metadatos** sin bordes, dos columnas, alineada a la izquierda:
    Preparado para · Interlocutor · Preparado por · Fecha · Origen (la reunión).
-4. **Isologo de Yourebrand** abajo, chico, con el tagline *"El camino a la digitalización
-   de tu negocio"*.
+4. **Isologo de Yourebrand con wordmark** abajo, y debajo el tagline *"El camino a la
+   digitalización de tu negocio"* **entre dos líneas finas de ancho completo**, en 9 pt con
+   tracking abierto. Es el handle enmarcado del feed, traducido al papel: el único recurso
+   de firma del sistema de Instagram que funciona igual en un documento.
 
 > No intentes fondo sangrado a página completa. En Word depende de los márgenes de
 > impresión y se rompe distinto en cada máquina. La banda dentro de márgenes se ve
@@ -131,7 +161,12 @@ página a la derecha, 8 pt `#888888`, con línea superior fina.
 - **El color no se inventa.** Todo hex sale de `marca/tokens.css`.
 - **Un componente por trabajo.** Si algo no entra en los ocho de arriba, no lo improvises:
   reportalo y que se agregue acá.
-- **Nada de degradé en el interior.** Solo portada, y solo si se pidió explícitamente.
+- **El rojo es de la portada; el azul estructura el interior.** Es la misma jerarquía del
+  manual de marca aplicada a un formato distinto: el rojo tiene su momento donde más pesa
+  —lo primero que se ve— y el interior usa azul para encabezados y tablas porque un
+  documento de cinco páginas con rojo de estructura cansa y no se lee.
+- **Nada de degradé ni de fondos de color en el interior.** Solo la banda de portada.
+- **Nunca texto rojo sobre la banda roja.** Sobre color, todo blanco.
 - **Nunca `\n`.** Cada párrafo es un `Paragraph` propio.
 - **Los bullets se hacen con `numbering` y `LevelFormat.BULLET`**, nunca escribiendo `•`.
 - **Blanco de sobra.** Si una página se ve llena, sobra texto: eso es problema de Pablo,
