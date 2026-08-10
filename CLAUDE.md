@@ -42,6 +42,33 @@ Corré el flujo completo con `/carrusel`. Cada agente también se puede invocar 
 **Entregables de una corrida:** `output/AAAA-MM-DD-<slug>/` con `copy.md`,
 `slide-01.png … slide-NN.png` y el `spec.json` que los generó.
 
+## El sistema de clientes
+
+Independiente del pipeline de contenido. Son **dos flujos separados** que nunca se cruzan:
+uno prepara reuniones, el otro las convierte en propuestas.
+
+```
+PRE-CALL                    POST-CALL
+Santiago                    Pablo  →  Lola-propuestas
+   ↓                          ↓             ↓
+precall-<fecha>.md      propuesta-<fecha>.md   propuesta-<Cliente>.docx
+```
+
+| Agente | Rol | Modelo |
+|---|---|---|
+| **Santiago** | Investigación previa a la reunión | Sonnet |
+| **Pablo** | Análisis de la reunión y redacción de la propuesta | Opus |
+| **Lola-propuestas** | Diseño del documento Word | Sonnet |
+
+Santiago corre solo, antes de la reunión. Pablo y Lola corren **siempre juntos**: la salida
+de Pablo es texto y no sirve hasta que Lola la maqueta.
+
+**Todo lo de un cliente vive en `clientes/<slug>/`:** el logo, el briefing pre-call, la
+propuesta en texto, el `.docx` final y el script que lo generó.
+
+El sistema visual del documento está en `disenio/propuesta.md`. `marca/contexto-agencia.md`
+es la fuente de verdad de servicios, casos con números y equipo.
+
 ## Reglas del repo
 
 - **`marca/` es sagrado.** `tokens.css`, `manual-de-marca.md` y `tono-de-voz.md` son la
@@ -67,6 +94,8 @@ Español **rioplatense, de vos**. Directo, sin relleno de LinkedIn, sin gurú. V
 | `/carrusel [tema]` | Pipeline completo: investiga, filtra, diseña y escribe. |
 | `/investigar [tema]` | Solo research + briefs. Frena antes de producir. |
 | `/disenar <slug>` | Rediseña o re-renderiza una idea ya briefeada. |
+| `/precall <cliente + links>` | Investigación previa a una reunión. |
+| `/propuesta <link de Fathom>` | Propuesta post-reunión: analiza y entrega el Word. |
 
 ## Setup
 

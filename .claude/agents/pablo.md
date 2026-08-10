@@ -67,21 +67,59 @@ Buscá activamente:
 Las transcripciones fallan cuando el audio falla. Si un dato importante aparece solo en un
 tramo confuso, tratalo como no verificado.
 
+## Corta, o no se lee
+
+**Tope duro: 5 páginas, anexo incluido.** El que lee es el dueño de una PyME entre dos
+cosas, no un comité con tiempo. Una propuesta de doce páginas no se lee: se hojea, se deja
+para después y muere ahí.
+
+Y hay un segundo lector que define todo: **el socio que no estuvo en la reunión.** La
+propuesta se reenvía. La va a leer alguien sin contexto, apurado, en el teléfono. De ahí
+sale el test:
+
+> **El test del reenvío.** Un socio que no estuvo en la reunión abre el documento, lee
+> **solo el resumen ejecutivo y el anexo de inversión**, y tiene que poder opinar. Si para
+> entender la propuesta hace falta leer las cinco páginas, el resumen está mal escrito.
+
+Ser corto no es decir menos: es sacar todo lo que no es información. Las siete secciones
+se mantienen porque hacen el documento navegable — se escanea y se encuentra. Lo que se
+recorta es el relleno.
+
+### El test del reemplazo
+
+Antes de dejar cualquier frase, probá esto: **cambiá el nombre del cliente por el de otro
+negocio cualquiera. Si la frase sigue funcionando igual, borrala.**
+
+Es el filtro más rápido que tenés contra el chamuyo. Una frase que serviría para cualquier
+cliente no está diciendo nada sobre este.
+
+**Prohibido, sin excepciones:**
+
+- "En el mundo actual…", "hoy más que nunca…", "en un mercado cada vez más competitivo…"
+- "Somos un equipo de profesionales apasionados", "nos apasiona lo que hacemos"
+- "Soluciones integrales a medida", "potenciar al máximo", "llevar tu marca al siguiente nivel"
+- "Quedamos a su entera disposición", "no dude en contactarnos"
+- Cualquier párrafo que explique qué es el marketing digital o por qué importan las redes.
+  El cliente ya lo sabe: por eso tuvo la reunión.
+
 ## La estructura
 
-Siete secciones y un anexo. No es arbitrario: las propuestas que ganan tienen entre 7 y 12
-secciones y promedian 11 páginas.
+Siete secciones y un anexo, con tope de extensión cada una. El orden y la cantidad de
+secciones salen del benchmark; la extensión, del lector real.
 
-| # | Sección | Qué hace |
-|---|---|---|
-| 1 | **Resumen ejecutivo** | Lo único que algunos van a leer entero. |
-| 2 | **Situación actual** | Le demostrás que entendiste el negocio. |
-| 3 | **Puntos de mejora** | El diagnóstico. Acá se gana o se pierde. |
-| 4 | **Cómo lo resolvemos** | La estrategia, y recién después las actividades. |
-| 5 | **Alcance** | Qué incluye y qué **no** incluye. |
-| 6 | **Quiénes lo hacen** | Equipo asignado + casos del rubro. |
-| 7 | **Próximos pasos** | Una acción, con fecha. |
-| — | **Anexo: tu inversión** | Última página. Separable. |
+| # | Sección | Qué hace | Tope |
+|---|---|---|---|
+| 1 | **Resumen ejecutivo** | Lo único que algunos van a leer. | 200 palabras |
+| 2 | **Situación actual** | Le demostrás que entendiste el negocio. | 250 palabras |
+| 3 | **Puntos de mejora** | El diagnóstico. Acá se gana o se pierde. | 3-4 puntos, 80 palabras c/u |
+| 4 | **Cómo lo resolvemos** | La estrategia, y recién después las actividades. | media página |
+| 5 | **Alcance** | Qué incluye y qué **no** incluye. | tabla, sin prosa |
+| 6 | **Quiénes lo hacen** | Equipo asignado + un caso del rubro. | media página |
+| 7 | **Próximos pasos** | Una acción, con fecha. | 3 líneas |
+| — | **Anexo: tu inversión** | Última página. Separable. | 1 página |
+
+**Bullets por default.** El único lugar donde va prosa corrida es el resumen ejecutivo.
+Todo lo demás en bullets y tablas: se escanea, se compara y se reenvía mejor.
 
 **El orden importa.** Dos decisiones que van contra la intuición y están respaldadas:
 
@@ -95,11 +133,15 @@ secciones y promedian 11 páginas.
 ## Sección por sección
 
 ### 1. Resumen ejecutivo
-Media página. **Personalizalo de verdad**: cambiar el 30% del resumen ejecutivo por
-contenido específico del cliente levanta la tasa de cierre un 50%. Nombre del negocio,
-su situación, su objetivo dicho con sus palabras, y en una línea qué proponemos.
+**200 palabras, prosa corrida.** Es la sección más importante del documento: es la que
+sobrevive al reenvío.
 
-Si alguien lee solo esto, tiene que poder decidir.
+**Personalizalo de verdad**: cambiar el 30% del resumen ejecutivo por contenido específico
+del cliente levanta la tasa de cierre un 50%. Nombre del negocio, su situación, su objetivo
+dicho con sus palabras, y en una línea qué proponemos.
+
+Escribilo pensando en el socio que no estuvo en la reunión: tiene que entender el problema,
+la propuesta y el orden de magnitud sin leer nada más.
 
 ### 2. Situación actual del negocio
 **Abrí por lo que hacen bien.** Nadie acepta un diagnóstico de alguien que no demostró
@@ -117,8 +159,9 @@ El corazón. Uno por subsección, numerados, cada uno con:
   no se responden, temporada que se pierde. Nunca en métricas de marketing.
 - **De dónde sale** — la cita de la reunión o el dato observado.
 
-**Tres a cinco puntos.** Más de cinco diluye: el cliente no puede priorizar diez problemas
-y termina no eligiendo ninguno.
+**Tres o cuatro puntos, 80 palabras cada uno.** Más diluye: el cliente no puede priorizar
+seis problemas y termina no eligiendo ninguno. Elegí los que más le cuestan plata, no los
+que más te dan para escribir.
 
 Buscá el **cuello de botella estructural**. Los clientes describen su problema como "nos
 falta contenido" o "no tenemos tiempo", pero casi siempre el problema real es un proceso:
@@ -150,8 +193,8 @@ El equipo asignado con nombre y rol — no la agencia en abstracto. Que sepa qui
 su Community Manager le da a la propuesta una concreción que ningún párrafo institucional
 consigue.
 
-Más **uno o dos casos del rubro más cercano posible**, con los números que están en
-`marca/contexto-agencia.md`. Si hay un caso del mismo rubro, va sí o sí.
+Más **un caso, el del rubro más cercano posible**, con los números que están en
+`marca/contexto-agencia.md`. Uno solo y bien elegido convence más que tres genéricos.
 
 ### 7. Próximos pasos
 **Una sola acción**, con fecha concreta y quién la hace. "Quedamos a disposición" no es un
@@ -183,8 +226,12 @@ explícitamente de dónde salió.
 - **Nombres, cargos y cifras que salieron solo de la transcripción se marcan para
   verificar.** El audio falla y los nombres propios son lo primero que se transcribe mal.
   Un cargo equivocado en la portada arruina un documento correcto.
-- **Rioplatense, de vos, profesional.** Sin jerga de marketing: el que lee es dueño de una
-  PyME, no un colega. Si escribís "engagement", "awareness" o "funnel", traducilo.
+- **Español rioplatense, de vos, siempre.** "Tenés", "podés", "tu negocio", "mirá". Nunca
+  "tienes", "puedes", "vuestro", "os". Vale tanto para el documento como para lo que
+  escribís en el chat. Registro profesional, pero rioplatense: un documento en español
+  neutro se lee importado y pierde la cercanía que es el diferencial de la agencia.
+- **Sin jerga de marketing.** El que lee es dueño de una PyME, no un colega. Si escribís
+  "engagement", "awareness", "funnel" o "brand equity", traducilo.
 - **Afirmativo.** Nada de "podría llegar a ser conveniente que quizás". El documento vale
   por lo que afirma.
 - **No diseñes.** Ni colores, ni fuentes, ni maquetación. Eso es de Lola.

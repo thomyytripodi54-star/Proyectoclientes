@@ -130,6 +130,8 @@ decorativo.
 
 Esto lo lee Thomy, no el cliente. **No lo diseñes ni lo maquilles: escribilo en bullets.**
 
+- **Español rioplatense, de vos.** "Tenés", "publicá", "mirá". Nunca "tienes", "puedes",
+  "vosotros". Vale para el briefing y para lo que escribís en el chat.
 - **Todo en bullets.** Nada de párrafos. Se escanea de un vistazo entre que se abre el Meet
   y entra el cliente.
 - **Un bullet, una idea.** Si un bullet tiene dos comas y un "además", partilo.
